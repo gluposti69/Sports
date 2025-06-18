@@ -4,10 +4,11 @@ export const mockData = {
   business: {
     name: "Blue Check Inspections",
     tagline: "Your Trusted Building Inspection Experts",
-    phone: "(03) 9123 4567",
+    phone: "0477 167 167",
     email: "info@bluecheckinspections.com.au",
     address: "Melbourne, Victoria",
     serviceArea: "All of Melbourne Metropolitan Area",
+    contactPerson: "Goran",
     businessHours: {
       weekdays: "Monday - Friday: 7:00 AM - 6:00 PM",
       saturday: "Saturday: 8:00 AM - 4:00 PM",
