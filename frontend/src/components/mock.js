@@ -140,7 +140,7 @@ export const mockData = {
     {
       icon: "Clock",
       title: "Fast Turnaround", 
-      description: "Detailed reports delivered within 24 hours guaranteed"
+      description: "Detailed reports delivered within 2-3 business days guaranteed"
     },
     {
       icon: "Eye",
