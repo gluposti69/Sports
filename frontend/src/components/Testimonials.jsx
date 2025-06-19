@@ -95,7 +95,7 @@ const Testimonials = () => {
             </div>
             <div className="group cursor-pointer">
               <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2 group-hover:scale-110 transition-transform duration-300">
-                4.9
+                5.0
               </div>
               <div className="text-gray-600 font-medium">Average Rating</div>
             </div>
