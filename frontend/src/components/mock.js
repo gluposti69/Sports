@@ -5,7 +5,7 @@ export const mockData = {
     name: "Blue Check Inspections",
     tagline: "Your Trusted Building Inspection Experts",
     phone: "0477 167 167",
-    email: "info@bluecheckinspections.com.au",
+    email: "bluecheckinspections@gmail.com",
     address: "Melbourne, Victoria",
     serviceArea: "All of Melbourne Metropolitan Area",
     contactPerson: "Goran",
@@ -15,9 +15,9 @@ export const mockData = {
       sunday: "Sunday: By Appointment Only"
     },
     credentials: [
-      "VBA Registered Master Builder Member",
-      "Licensed Building Practitioner", 
-      "Certified Professional Inspector",
+      "VBA Registered Building Practitioner",
+      "HIA Member", 
+      "Licensed Building Inspector",
       "15+ Years Experience"
     ]
   },
