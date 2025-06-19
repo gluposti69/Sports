@@ -109,7 +109,17 @@ const Footer = () => {
             <div className="flex flex-wrap items-center gap-6">
               {mockData.business.credentials.map((credential, index) => (
                 <div key={index} className="flex items-center space-x-2 bg-gray-800 rounded-full px-4 py-2">
-                  <Shield className="w-4 h-4 text-blue-400" />
+                  {credential.includes('VBA') ? (
+                    <div className="w-4 h-4 bg-blue-500 rounded flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">V</span>
+                    </div>
+                  ) : credential.includes('HIA') ? (
+                    <div className="w-4 h-4 bg-green-500 rounded flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">H</span>
+                    </div>
+                  ) : (
+                    <Shield className="w-4 h-4 text-blue-400" />
+                  )}
                   <span className="text-sm text-gray-300">{credential}</span>
                 </div>
               ))}
