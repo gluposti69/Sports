@@ -256,7 +256,7 @@ const Contact = () => {
                 <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
                   <div className="flex items-center space-x-2 text-green-700">
                     <CheckCircle className="w-5 h-5" />
-                    <span className="font-medium">We respond within 2 hours during business hours</span>
+                    <span className="font-medium">We respond within 2 hours and deliver reports in 2-3 business days</span>
                   </div>
                 </div>
               </CardContent>
