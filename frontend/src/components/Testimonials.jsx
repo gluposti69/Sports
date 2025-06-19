@@ -114,30 +114,33 @@ const Testimonials = () => {
           </div>
         </div>
 
-        {/* Trust Badges */}
-        <div className="mt-12 flex flex-wrap justify-center items-center gap-8 opacity-60">
-          <div className="bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                <span className="text-blue-600 font-bold">VBA</span>
-              </div>
-              <span className="text-gray-700 font-medium">Registered Builder</span>
+        {/* Trust Badges with Professional Logos */}
+        <div className="mt-12 flex flex-wrap justify-center items-center gap-8 opacity-80">
+          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex items-center space-x-4">
+            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <span className="text-blue-600 font-bold text-sm">VBA</span>
+            </div>
+            <div>
+              <span className="text-gray-800 font-semibold block">VBA Registered</span>
+              <span className="text-gray-600 text-sm">Building Practitioner</span>
             </div>
           </div>
-          <div className="bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                <span className="text-green-600 font-bold">✓</span>
-              </div>
-              <span className="text-gray-700 font-medium">Fully Insured</span>
+          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex items-center space-x-4">
+            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <span className="text-green-600 font-bold text-sm">HIA</span>
+            </div>
+            <div>
+              <span className="text-gray-800 font-semibold block">HIA Member</span>
+              <span className="text-gray-600 text-sm">Housing Industry</span>
             </div>
           </div>
-          <div className="bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                <Star className="w-5 h-5 text-yellow-600" />
-              </div>
-              <span className="text-gray-700 font-medium">5-Star Service</span>
+          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex items-center space-x-4">
+            <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+              <Star className="w-6 h-6 text-yellow-600" />
+            </div>
+            <div>
+              <span className="text-gray-800 font-semibold block">5-Star Service</span>
+              <span className="text-gray-600 text-sm">Customer Rated</span>
             </div>
           </div>
         </div>
