@@ -117,7 +117,7 @@ export const mockData = {
       "Professional summary and advice"
     ],
     pages: "Typically 25-40 pages",
-    delivery: "Delivered within 24 hours via email"
+    delivery: "Delivered within 2-3 business days via email"
   },
 
   contactForm: {
