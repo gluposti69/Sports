@@ -116,13 +116,13 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Star className="w-4 h-4 text-yellow-400" />
-                <span>4.9/5 Rating</span>
+                <span>5.0/5 Rating</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Clock className="w-4 h-4 text-green-400" />
-                <span>24hr Reports</span>
+                <span>2-3 Day Reports</span>
               </div>
             </div>
           </div>
