@@ -90,8 +90,8 @@ const Hero = () => {
               <div className="text-blue-200 text-sm">Average Rating</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">24hrs</div>
-              <div className="text-blue-200 text-sm">Report Delivery</div>
+              <div className="text-3xl font-bold text-white mb-1">2-3</div>
+              <div className="text-blue-200 text-sm">Business Days</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1">100%</div>
