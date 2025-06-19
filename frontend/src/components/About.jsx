@@ -52,13 +52,19 @@ const About = () => {
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-2 hover:rotate-0 transition-transform duration-500">
                 <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <div className="text-white font-bold text-lg">VBA</div>
                   </div>
                   <h4 className="text-xl font-bold text-gray-900">VBA Registered</h4>
-                  <p className="text-blue-600 font-medium">Master Builder Member</p>
+                  <p className="text-blue-600 font-medium">Building Practitioner</p>
                 </div>
                 <div className="border-t pt-4">
+                  <div className="flex items-center justify-center space-x-2 mb-2">
+                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                      <span className="text-green-600 font-bold text-xs">HIA</span>
+                    </div>
+                    <span className="text-gray-600 font-medium">HIA Member</span>
+                  </div>
                   <div className="flex items-center justify-center space-x-2">
                     <MapPin className="w-4 h-4 text-gray-500" />
                     <span className="text-gray-600">{mockData.business.serviceArea}</span>
