@@ -32,7 +32,7 @@ export const mockData = {
         "Electrical safety inspection", 
         "Plumbing system evaluation",
         "Pest and termite inspection",
-        "Detailed written report within 24 hours",
+        "Detailed written report within 2-3 business days",
         "Photos and recommendations included"
       ],
       duration: "2-3 hours",
