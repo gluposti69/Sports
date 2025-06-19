@@ -147,11 +147,11 @@ const Footer = () => {
               © {currentYear} {mockData.business.name}. All rights reserved.
             </div>
             <div className="flex items-center space-x-6">
-              <span>Licensed Building Practitioner</span>
+              <span>VBA Registered Building Practitioner</span>
+              <span>•</span>
+              <span>HIA Member</span>
               <span>•</span>
               <span>Fully Insured</span>
-              <span>•</span>
-              <span>VBA Registered</span>
             </div>
           </div>
         </div>
