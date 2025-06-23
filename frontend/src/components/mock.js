@@ -2,7 +2,7 @@
 
 export const mockData = {
   business: {
-    name: "BlueCheck Inspections",
+    name: "BLUECHECK INSPECTIONS P/L",
     tagline: "Your Trusted Building Inspection Experts",
     phone: "0477 167 167",
     email: "bluecheckinspections@gmail.com",
