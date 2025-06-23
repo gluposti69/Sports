@@ -31,12 +31,12 @@ const Hero = () => {
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
             Professional
-            <span className="block bg-gradient-to-r from-blue-300 to-white bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-300 via-white to-blue-300 bg-clip-text text-transparent animate-pulse">
               Building Inspections
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
             Protect your investment with comprehensive property inspections from Melbourne's most trusted experts
           </p>
 
