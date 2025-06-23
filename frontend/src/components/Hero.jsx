@@ -73,21 +73,23 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-500">
             <Button 
               onClick={scrollToContact}
               size="lg"
-              className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-4 rounded-xl shadow-2xl hover:shadow-blue-300/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 font-semibold"
+              className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-4 rounded-xl shadow-2xl hover:shadow-blue-300/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 font-semibold group"
             >
-              Book Your Inspection
+              <span className="mr-2">Book Your Inspection</span>
+              <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Button>
             <Button 
               onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 font-semibold"
+              className="border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 font-semibold group"
             >
-              View Services
+              <span className="mr-2">View Services</span>
+              <span className="group-hover:translate-x-1 transition-transform duration-300">↓</span>
             </Button>
           </div>
 
