@@ -50,14 +50,28 @@ const Header = () => {
       <nav className="px-4 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            {/* BlueCheck Inspections Logo inspired by the provided design */}
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg flex items-center justify-center shadow-lg relative">
-              {/* House outline design */}
-              <div className="relative">
-                <div className="w-8 h-6 border-2 border-yellow-400 rounded-sm relative">
-                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-yellow-400"></div>
-                  <div className="absolute bottom-0 left-1 w-1 h-3 bg-yellow-400"></div>
-                  <div className="absolute bottom-0 right-1 w-1 h-2 bg-yellow-400"></div>
+            {/* BlueCheck Inspections Official Logo */}
+            <div className="w-14 h-14 bg-blue-900 rounded-lg flex items-center justify-center shadow-lg relative overflow-hidden">
+              {/* Geometric house design from the logo */}
+              <div className="relative w-10 h-8">
+                {/* Outer house frame */}
+                <div className="absolute inset-0">
+                  {/* Left wall */}
+                  <div className="absolute left-0 top-2 w-3 h-6 border-l-2 border-b-2 border-yellow-400"></div>
+                  {/* Right wall */}
+                  <div className="absolute right-0 top-2 w-3 h-6 border-r-2 border-b-2 border-yellow-400"></div>
+                  {/* Top roof lines */}
+                  <div className="absolute left-1 top-0 w-8 h-4 border-l-2 border-t-2 border-r-2 border-yellow-400 transform skew-y-12"></div>
+                </div>
+                {/* Center building with lines */}
+                <div className="absolute left-1/2 top-3 transform -translate-x-1/2 w-4 h-4 border-2 border-yellow-400 bg-blue-900">
+                  {/* Horizontal lines */}
+                  <div className="absolute inset-1 space-y-0.5">
+                    <div className="h-0.5 bg-white"></div>
+                    <div className="h-0.5 bg-white"></div>
+                    <div className="h-0.5 bg-white"></div>
+                    <div className="h-0.5 bg-white"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -65,12 +79,12 @@ const Header = () => {
               <h1 className={`text-2xl font-bold transition-colors duration-300 ${
                 isScrolled ? 'text-gray-900' : 'text-white'
               }`}>
-                BlueCheck Inspections
+                <span className="tracking-wider">BLUECHECK</span>
               </h1>
-              <p className={`text-sm transition-colors duration-300 ${
-                isScrolled ? 'text-gray-600' : 'text-blue-100'
+              <p className={`text-sm font-medium transition-colors duration-300 tracking-widest ${
+                isScrolled ? 'text-yellow-600' : 'text-yellow-400'
               }`}>
-                {mockData.business.tagline}
+                INSPECTIONS P/L
               </p>
             </div>
           </div>
