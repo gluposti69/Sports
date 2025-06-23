@@ -8,11 +8,13 @@ import About from "./components/About";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollProgress from "./components/ScrollProgress";
 import { Toaster } from "./components/ui/toaster";
 
 const Home = () => {
   return (
     <div className="min-h-screen">
+      <ScrollProgress />
       <Header />
       <Hero />
       <Services />
