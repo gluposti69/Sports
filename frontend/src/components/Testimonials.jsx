@@ -117,11 +117,10 @@ const Testimonials = () => {
         {/* Trust Badges with Professional Logos */}
         <div className="mt-12 flex flex-wrap justify-center items-center gap-8 opacity-90">
           <div className="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center space-x-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg">
-              <div className="text-center">
-                <div className="text-white font-bold text-sm">VBA</div>
-                <div className="text-blue-200 text-xs">REG</div>
-              </div>
+            {/* VBA Logo Design */}
+            <div className="w-16 h-16 bg-white border-3 border-blue-600 rounded-xl flex flex-col items-center justify-center shadow-lg">
+              <div className="text-blue-600 font-bold text-sm">VBA</div>
+              <div className="text-blue-400 text-xs">REG</div>
             </div>
             <div>
               <span className="text-gray-800 font-bold block">VBA Registered</span>
@@ -129,10 +128,11 @@ const Testimonials = () => {
             </div>
           </div>
           <div className="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center space-x-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center shadow-lg">
-              <div className="text-center">
-                <div className="text-white font-bold text-sm">HIA</div>
-                <div className="text-green-200 text-xs">MEMBER</div>
+            {/* HIA Logo Design */}
+            <div className="w-16 h-16 bg-green-600 rounded-xl flex flex-col items-center justify-center shadow-lg relative">
+              <div className="text-white font-bold text-sm">HIA</div>
+              <div className="absolute -bottom-1 -right-1 w-6 h-4 bg-yellow-500 rounded-sm flex items-center justify-center">
+                <div className="w-3 h-2 bg-green-600 rounded-sm"></div>
               </div>
             </div>
             <div>
