@@ -110,12 +110,13 @@ const Footer = () => {
               {mockData.business.credentials.map((credential, index) => (
                 <div key={index} className="flex items-center space-x-2 bg-gray-800 rounded-full px-4 py-2 hover:bg-gray-700 transition-colors duration-300">
                   {credential.includes('VBA') ? (
-                    <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">V</span>
+                    <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
+                      <span className="text-blue-600 text-xs font-bold">VBA</span>
                     </div>
                   ) : credential.includes('HIA') ? (
-                    <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center">
+                    <div className="w-6 h-6 bg-green-600 rounded-lg flex items-center justify-center relative">
                       <span className="text-white text-xs font-bold">H</span>
+                      <div className="absolute -bottom-0.5 -right-0.5 w-2 h-1.5 bg-yellow-400 rounded-sm"></div>
                     </div>
                   ) : (
                     <Shield className="w-4 h-4 text-blue-400" />
