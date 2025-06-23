@@ -50,17 +50,22 @@ const Header = () => {
       <nav className="px-4 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-              <div className="flex flex-col items-center">
-                <span className="text-white font-bold text-xs">BLUE</span>
-                <div className="w-2 h-2 bg-white rounded-full"></div>
+            {/* BlueCheck Inspections Logo inspired by the provided design */}
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg flex items-center justify-center shadow-lg relative">
+              {/* House outline design */}
+              <div className="relative">
+                <div className="w-8 h-6 border-2 border-yellow-400 rounded-sm relative">
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-yellow-400"></div>
+                  <div className="absolute bottom-0 left-1 w-1 h-3 bg-yellow-400"></div>
+                  <div className="absolute bottom-0 right-1 w-1 h-2 bg-yellow-400"></div>
+                </div>
               </div>
             </div>
             <div>
               <h1 className={`text-2xl font-bold transition-colors duration-300 ${
                 isScrolled ? 'text-gray-900' : 'text-white'
               }`}>
-                {mockData.business.name}
+                BlueCheck Inspections
               </h1>
               <p className={`text-sm transition-colors duration-300 ${
                 isScrolled ? 'text-gray-600' : 'text-blue-100'
