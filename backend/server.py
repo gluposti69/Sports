@@ -1,14 +1,15 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field
-from typing import List
+from pydantic import BaseModel, Field, EmailStr
+from typing import List, Optional
 import uuid
 from datetime import datetime
+from enum import Enum
 
 
 ROOT_DIR = Path(__file__).parent
@@ -20,10 +21,23 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Create the main app without a prefix
-app = FastAPI()
+app = FastAPI(title="BlueCheck Inspections API", version="1.0.0")
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
+
+
+# Define Enums
+class InspectionType(str, Enum):
+    PRE_PURCHASE = "pre-purchase"
+    NEW_HOME = "new-home"
+
+class InquiryStatus(str, Enum):
+    NEW = "new"
+    CONTACTED = "contacted"
+    SCHEDULED = "scheduled"
+    COMPLETED = "completed"
+    CANCELLED = "cancelled"
 
 
 # Define Models
@@ -34,6 +48,33 @@ class StatusCheck(BaseModel):
 
 class StatusCheckCreate(BaseModel):
     client_name: str
+
+class ContactInquiry(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    email: EmailStr
+    phone: str
+    property_address: str
+    inspection_type: InspectionType
+    preferred_date: Optional[str] = None
+    message: Optional[str] = None
+    status: InquiryStatus = InquiryStatus.NEW
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+class ContactInquiryCreate(BaseModel):
+    name: str = Field(..., min_length=1, max_length=100)
+    email: EmailStr
+    phone: str = Field(..., min_length=8, max_length=20)
+    property_address: str = Field(..., min_length=5, max_length=200)
+    inspection_type: InspectionType
+    preferred_date: Optional[str] = None
+    message: Optional[str] = Field(None, max_length=1000)
+
+class ContactInquiryResponse(BaseModel):
+    id: str
+    message: str
+    status: str
 
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
