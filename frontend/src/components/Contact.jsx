@@ -16,33 +16,96 @@ const Contact = () => {
     preferredDate: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
   const { toast } = useToast();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Mock form submission
-    toast({
-      title: "Booking Request Submitted!",
-      description: "We'll contact you within 2 hours to confirm your inspection appointment.",
-    });
+  const validateForm = () => {
+    const newErrors = {};
     
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      propertyAddress: '',
-      inspectionType: 'pre-purchase',
-      preferredDate: '',
-      message: ''
-    });
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!/^[\d\s\-\+\(\)]+$/.test(formData.phone)) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
+    
+    if (!formData.propertyAddress.trim()) {
+      newErrors.propertyAddress = 'Property address is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    if (!validateForm()) {
+      setIsSubmitting(false);
+      toast({
+        title: "Form Error",
+        description: "Please fix the errors below and try again.",
+      });
+      return;
+    }
+    
+    // Simulate form submission delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    try {
+      // Mock form submission success
+      toast({
+        title: "Booking Request Submitted!",
+        description: "We'll contact you within 2 hours to confirm your inspection appointment.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        propertyAddress: '',
+        inspectionType: 'pre-purchase',
+        preferredDate: '',
+        message: ''
+      });
+      setErrors({});
+      
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your request. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   return (
