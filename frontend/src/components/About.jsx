@@ -52,20 +52,24 @@ const About = () => {
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-2 hover:rotate-0 transition-transform duration-500">
                 <div className="text-center mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
-                    <div className="text-center">
-                      <div className="text-white font-bold text-sm">VBA</div>
-                      <div className="text-blue-200 text-xs">REG</div>
-                    </div>
+                  {/* VBA Logo inspired by official design */}
+                  <div className="w-20 h-20 bg-white border-4 border-blue-600 rounded-2xl flex flex-col items-center justify-center mx-auto mb-4 shadow-xl">
+                    <div className="text-blue-600 font-bold text-lg">VBA</div>
+                    <div className="text-blue-400 text-xs font-semibold">VICTORIA</div>
                   </div>
                   <h4 className="text-xl font-bold text-gray-900">VBA Registered</h4>
                   <p className="text-blue-600 font-medium">Building Practitioner</p>
+                  <div className="mt-2 w-16 h-8 bg-gray-100 rounded-full flex items-center justify-center mx-auto">
+                    <span className="text-xs font-semibold text-gray-600">REGISTERED</span>
+                  </div>
                 </div>
                 <div className="border-t pt-4 space-y-3">
                   <div className="flex items-center justify-center space-x-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center shadow-lg">
-                      <div className="text-center">
-                        <div className="text-white font-bold text-xs">HIA</div>
+                    {/* HIA Logo inspired by official design */}
+                    <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center shadow-lg relative">
+                      <div className="text-white font-bold text-xs">HIA</div>
+                      <div className="absolute -bottom-1 -right-1 w-4 h-3 bg-yellow-500 rounded-sm">
+                        <div className="w-2 h-2 bg-green-600 rounded-sm absolute top-0 left-1"></div>
                       </div>
                     </div>
                     <span className="text-gray-700 font-semibold">HIA Member</span>
