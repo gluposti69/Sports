@@ -6,6 +6,9 @@ import { Phone, Mail, MapPin, Clock, CheckCircle, MessageSquare } from 'lucide-r
 import { mockData } from './mock';
 import { useToast } from '../hooks/use-toast';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -60,32 +63,57 @@ const Contact = () => {
       return;
     }
     
-    // Simulate form submission delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
     try {
-      // Mock form submission success
-      toast({
-        title: "Booking Request Submitted!",
-        description: "We'll contact you within 2 hours to confirm your inspection appointment.",
-      });
+      // Convert frontend form data to backend format
+      const submitData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        property_address: formData.propertyAddress,
+        inspection_type: formData.inspectionType,
+        preferred_date: formData.preferredDate || null,
+        message: formData.message || null
+      };
       
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        propertyAddress: '',
-        inspectionType: 'pre-purchase',
-        preferredDate: '',
-        message: ''
+      console.log('Submitting to:', `${API}/contact/inquiry`);
+      console.log('Data:', submitData);
+      
+      const response = await fetch(`${API}/contact/inquiry`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submitData),
       });
-      setErrors({});
+
+      const result = await response.json();
+      
+      if (response.ok) {
+        toast({
+          title: "Booking Request Submitted!",
+          description: result.message || "We'll contact you within 2 hours to confirm your inspection appointment.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          propertyAddress: '',
+          inspectionType: 'pre-purchase',
+          preferredDate: '',
+          message: ''
+        });
+        setErrors({});
+      } else {
+        throw new Error(result.detail || 'Failed to submit request');
+      }
       
     } catch (error) {
+      console.error('Submission error:', error);
       toast({
         title: "Submission Failed",
-        description: "There was an error submitting your request. Please try again.",
+        description: error.message || "There was an error submitting your request. Please try again or call us directly.",
       });
     } finally {
       setIsSubmitting(false);
