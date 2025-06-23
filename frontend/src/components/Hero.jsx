@@ -42,9 +42,17 @@ const Hero = () => {
 
           {/* Credentials Bar */}
           <div className="flex flex-wrap justify-center items-center gap-6 mb-10 text-sm">
-            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-              <Shield className="w-5 h-5 text-blue-300" />
+            <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 hover:bg-white/20 transition-colors duration-300">
+              <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xs">V</span>
+              </div>
               <span>VBA Registered</span>
+            </div>
+            <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 hover:bg-white/20 transition-colors duration-300">
+              <div className="w-6 h-6 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xs">H</span>
+              </div>
+              <span>HIA Member</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Star className="w-5 h-5 text-yellow-400" />
