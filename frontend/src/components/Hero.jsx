@@ -43,14 +43,18 @@ const Hero = () => {
           {/* Credentials Bar */}
           <div className="flex flex-wrap justify-center items-center gap-6 mb-10 text-sm">
             <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 hover:bg-white/20 transition-colors duration-300">
-              <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs">V</span>
+              {/* VBA Logo Design */}
+              <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
+                <span className="text-blue-600 font-bold text-xs">VBA</span>
               </div>
               <span>VBA Registered</span>
             </div>
             <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 hover:bg-white/20 transition-colors duration-300">
-              <div className="w-6 h-6 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs">H</span>
+              {/* HIA Logo Design */}
+              <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center relative">
+                <div className="w-3 h-3 bg-white rounded-sm relative">
+                  <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-1 border-r-1 border-b-1 border-transparent border-b-yellow-400"></div>
+                </div>
               </div>
               <span>HIA Member</span>
             </div>
