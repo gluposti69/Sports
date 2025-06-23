@@ -216,9 +216,6 @@ async def get_contact_stats():
     except Exception as e:
         logger.error(f"Error fetching contact stats: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch statistics")
-async def get_status_checks():
-    status_checks = await db.status_checks.find().to_list(1000)
-    return [StatusCheck(**status_check) for status_check in status_checks]
 
 # Include the router in the main app
 app.include_router(api_router)
