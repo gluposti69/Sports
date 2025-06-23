@@ -72,7 +72,7 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <p className="text-gray-600 text-sm">Call Goran directly</p>
+                    <p className="text-gray-600 text-sm">Call us directly</p>
                     <p className="text-lg font-semibold text-gray-900">{mockData.business.phone}</p>
                   </div>
                 </div>
