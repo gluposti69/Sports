@@ -10,15 +10,18 @@ const Toast = ({ id, title, description, onOpenChange }) => {
   }, [onOpenChange]);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 mb-4 max-w-md animate-in slide-in-from-right duration-300">
+    <div className="bg-white border border-gray-200 rounded-lg shadow-2xl p-4 mb-4 max-w-md animate-in slide-in-from-right duration-300 border-l-4 border-l-green-500">
       <div className="flex justify-between items-start">
-        <div>
-          <h4 className="font-semibold text-gray-900">{title}</h4>
-          {description && <p className="text-gray-600 text-sm mt-1">{description}</p>}
+        <div className="flex-1">
+          <div className="flex items-center space-x-2 mb-1">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <h4 className="font-semibold text-gray-900">{title}</h4>
+          </div>
+          {description && <p className="text-gray-600 text-sm">{description}</p>}
         </div>
         <button
           onClick={() => onOpenChange(false)}
-          className="text-gray-400 hover:text-gray-600 ml-4"
+          className="text-gray-400 hover:text-gray-600 ml-4 flex-shrink-0 w-5 h-5 flex items-center justify-center"
         >
           ×
         </button>
@@ -30,17 +33,23 @@ const Toast = ({ id, title, description, onOpenChange }) => {
 const Toaster = () => {
   const { toasts } = useToast();
 
+  if (!toasts || toasts.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="fixed top-4 right-4 z-50">
-      {toasts.map((toast) => (
-        <Toast
-          key={toast.id}
-          id={toast.id}
-          title={toast.title}
-          description={toast.description}
-          onOpenChange={toast.onOpenChange}
-        />
-      ))}
+    <div className="fixed top-4 right-4 z-[9999] pointer-events-none">
+      <div className="pointer-events-auto">
+        {toasts.map((toast) => (
+          <Toast
+            key={toast.id}
+            id={toast.id}
+            title={toast.title}
+            description={toast.description}
+            onOpenChange={toast.onOpenChange}
+          />
+        ))}
+      </div>
     </div>
   );
 };
