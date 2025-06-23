@@ -358,7 +358,14 @@ const Contact = () => {
                         : 'bg-blue-600 hover:bg-blue-700 text-white'
                     }`}
                   >
-                    {isSubmitting ? 'Submitting...' : 'Submit Inspection Request'}
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center space-x-2">
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Submitting...</span>
+                      </div>
+                    ) : (
+                      'Submit Inspection Request'
+                    )}
                   </Button>
                 </form>
 
@@ -366,6 +373,19 @@ const Contact = () => {
                   <div className="flex items-center space-x-2 text-green-700">
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">We respond within 2 hours and deliver reports in 2-3 business days</span>
+                  </div>
+                </div>
+                
+                {/* Alternative Contact Methods */}
+                <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <h4 className="font-semibold text-blue-900 mb-2">Prefer to call?</h4>
+                  <div className="flex items-center space-x-2 text-blue-700">
+                    <Phone className="w-4 h-4" />
+                    <span>Call us directly at <a href={`tel:${mockData.business.phone}`} className="font-bold hover:underline">{mockData.business.phone}</a></span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-blue-700 mt-1">
+                    <Mail className="w-4 h-4" />
+                    <span>Or email <a href={`mailto:${mockData.business.email}`} className="font-bold hover:underline">{mockData.business.email}</a></span>
                   </div>
                 </div>
               </CardContent>
