@@ -108,13 +108,13 @@ const Footer = () => {
           <div className="flex flex-wrap justify-center md:justify-between items-center gap-6">
             <div className="flex flex-wrap items-center gap-6">
               {mockData.business.credentials.map((credential, index) => (
-                <div key={index} className="flex items-center space-x-2 bg-gray-800 rounded-full px-4 py-2">
+                <div key={index} className="flex items-center space-x-2 bg-gray-800 rounded-full px-4 py-2 hover:bg-gray-700 transition-colors duration-300">
                   {credential.includes('VBA') ? (
-                    <div className="w-4 h-4 bg-blue-500 rounded flex items-center justify-center">
+                    <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
                       <span className="text-white text-xs font-bold">V</span>
                     </div>
                   ) : credential.includes('HIA') ? (
-                    <div className="w-4 h-4 bg-green-500 rounded flex items-center justify-center">
+                    <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center">
                       <span className="text-white text-xs font-bold">H</span>
                     </div>
                   ) : (
