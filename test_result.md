@@ -104,6 +104,97 @@
 
 user_problem_statement: "Test the BlueCheck Inspections contact form functionality thoroughly, including form validation, submission, navigation, toast notifications, and overall UI."
 
+backend:
+  - task: "API Health Check"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Initial testing of API health endpoint"
+        -working: true
+        -agent: "testing"
+        -comment: "API health endpoint is working correctly. GET /api/ returns status 200 with the expected message 'BlueCheck Inspections API is running'."
+
+  - task: "Contact Inquiry Creation"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Initial testing of contact inquiry creation endpoint"
+        -working: true
+        -agent: "testing"
+        -comment: "Contact inquiry creation is working correctly. POST /api/contact/inquiry with valid data returns a 200 status code with a success message and inquiry ID. The data is successfully stored in MongoDB as verified by subsequent retrieval."
+
+  - task: "Contact Inquiry Validation"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Initial testing of contact inquiry validation"
+        -working: true
+        -agent: "testing"
+        -comment: "Contact inquiry validation is working correctly. The API properly validates required fields (name, email, phone, property_address), email format, and inspection type. All validation tests returned the expected 422 status code for invalid data."
+
+  - task: "Contact Inquiry Retrieval"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Initial testing of contact inquiry retrieval endpoints"
+        -working: true
+        -agent: "testing"
+        -comment: "Contact inquiry retrieval endpoints are working correctly. GET /api/contact/inquiries returns a list of all inquiries, and GET /api/contact/inquiry/{id} returns the specific inquiry with the given ID."
+
+  - task: "Contact Statistics"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Initial testing of contact statistics endpoint"
+        -working: true
+        -agent: "testing"
+        -comment: "Contact statistics endpoint is working correctly. GET /api/contact/stats returns the expected data structure with total_inquiries, status_breakdown, inspection_type_breakdown, and recent_inquiries_7_days."
+
+  - task: "Data Persistence"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Initial testing of data persistence across multiple inquiries"
+        -working: true
+        -agent: "testing"
+        -comment: "Data persistence is working correctly. Multiple inquiries with different inspection types were created and successfully retrieved. The statistics endpoint correctly reflected the new inquiries in the counts."
+
 frontend:
   - task: "Form Validation Testing"
     implemented: true
@@ -183,16 +274,17 @@ frontend:
 metadata:
   created_by: "testing_agent"
   version: "1.0"
-  test_sequence: 1
+  test_sequence: 2
   run_ui: true
 
 test_plan:
   current_focus:
-    - "Form Validation Testing"
-    - "Form Submission Testing"
-    - "Navigation Testing"
-    - "Toast Notification Testing"
-    - "Overall UI Testing"
+    - "API Health Check"
+    - "Contact Inquiry Creation"
+    - "Contact Inquiry Validation"
+    - "Contact Inquiry Retrieval"
+    - "Contact Statistics"
+    - "Data Persistence"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
@@ -202,3 +294,7 @@ agent_communication:
     -message: "Starting comprehensive testing of the BlueCheck Inspections contact form functionality, including form validation, submission, navigation, toast notifications, and overall UI."
     -agent: "testing"
     -message: "Testing completed. The website is functioning correctly overall. Form validation is implemented differently than expected - it uses browser validation and toast notifications instead of inline error messages. Form submission, navigation, toast notifications, and overall UI are all working correctly."
+    -agent: "testing"
+    -message: "Starting comprehensive testing of the BlueCheck Inspections backend API functionality."
+    -agent: "testing"
+    -message: "Backend API testing completed. All tests passed successfully. The API health check, contact inquiry creation, validation, retrieval, statistics, and data persistence are all working correctly. Created a comprehensive backend_test.py script that can be used for future testing."
