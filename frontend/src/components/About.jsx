@@ -51,19 +51,24 @@ const About = () => {
             
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <div className="text-white font-bold text-lg">VBA</div>
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                    <div className="text-center">
+                      <div className="text-white font-bold text-sm">VBA</div>
+                      <div className="text-blue-200 text-xs">REG</div>
+                    </div>
                   </div>
                   <h4 className="text-xl font-bold text-gray-900">VBA Registered</h4>
                   <p className="text-blue-600 font-medium">Building Practitioner</p>
                 </div>
-                <div className="border-t pt-4">
-                  <div className="flex items-center justify-center space-x-2 mb-2">
-                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                      <span className="text-green-600 font-bold text-xs">HIA</span>
+                <div className="border-t pt-4 space-y-3">
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center shadow-lg">
+                      <div className="text-center">
+                        <div className="text-white font-bold text-xs">HIA</div>
+                      </div>
                     </div>
-                    <span className="text-gray-600 font-medium">HIA Member</span>
+                    <span className="text-gray-700 font-semibold">HIA Member</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2">
                     <MapPin className="w-4 h-4 text-gray-500" />
