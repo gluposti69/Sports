@@ -49,9 +49,12 @@ const Header = () => {
       {/* Main Navigation */}
       <nav className="px-4 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">✓</span>
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="flex flex-col items-center">
+                <span className="text-white font-bold text-xs">BLUE</span>
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+              </div>
             </div>
             <div>
               <h1 className={`text-2xl font-bold transition-colors duration-300 ${
