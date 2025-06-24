@@ -52,35 +52,40 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             {/* BlueCheck Inspections Official Logo */}
             <div className="w-16 h-16 bg-blue-900 rounded-lg flex items-center justify-center shadow-lg relative p-2">
-              {/* Recreating the geometric house design */}
-              <div className="relative w-12 h-10">
-                {/* Outer geometric frame */}
-                <svg className="w-full h-full" viewBox="0 0 48 40" fill="none">
-                  {/* Main house outline */}
-                  <path d="M2 38 L2 20 L12 8 L36 8 L46 20 L46 38 L38 38 L38 16 L10 16 L10 38 Z" 
-                        stroke="#D4AF37" strokeWidth="1.5" fill="none"/>
+              {/* Professional logo design matching the provided image */}
+              <svg className="w-full h-full" viewBox="0 0 64 64" fill="none">
+                {/* Main logo elements */}
+                <g>
+                  {/* Outer frame structure */}
+                  <path d="M8 56 L8 24 L16 12 L48 12 L56 24 L56 56 L48 56 L48 20 L16 20 L16 56 Z" 
+                        stroke="#D4AF37" strokeWidth="2" fill="none"/>
+                  
                   {/* Inner frame */}
-                  <path d="M10 16 L10 38 L16 38 L16 20 L32 20 L32 38 L38 38 L38 16" 
+                  <path d="M16 20 L16 56 L24 56 L24 28 L40 28 L40 56 L48 56 L48 20" 
                         stroke="#D4AF37" strokeWidth="1.5" fill="none"/>
+                  
                   {/* Center building with horizontal lines */}
-                  <rect x="18" y="22" width="12" height="12" 
-                        stroke="#D4AF37" strokeWidth="1" fill="#1e3a8a"/>
-                  {/* Horizontal lines inside */}
-                  <line x1="19" y1="24" x2="29" y2="24" stroke="white" strokeWidth="0.8"/>
-                  <line x1="19" y1="26" x2="29" y2="26" stroke="white" strokeWidth="0.8"/>
-                  <line x1="19" y1="28" x2="29" y2="28" stroke="white" strokeWidth="0.8"/>
-                  <line x1="19" y1="30" x2="29" y2="30" stroke="white" strokeWidth="0.8"/>
-                  <line x1="19" y1="32" x2="29" y2="32" stroke="white" strokeWidth="0.8"/>
-                </svg>
-              </div>
+                  <rect x="26" y="30" width="12" height="16" 
+                        stroke="#D4AF37" strokeWidth="1.5" fill="#1e3a8a"/>
+                  
+                  {/* Professional horizontal lines inside center building */}
+                  <line x1="28" y1="32" x2="36" y2="32" stroke="white" strokeWidth="1"/>
+                  <line x1="28" y1="34" x2="36" y2="34" stroke="white" strokeWidth="1"/>
+                  <line x1="28" y1="36" x2="36" y2="36" stroke="white" strokeWidth="1"/>
+                  <line x1="28" y1="38" x2="36" y2="38" stroke="white" strokeWidth="1"/>
+                  <line x1="28" y1="40" x2="36" y2="40" stroke="white" strokeWidth="1"/>
+                  <line x1="28" y1="42" x2="36" y2="42" stroke="white" strokeWidth="1"/>
+                  <line x1="28" y1="44" x2="36" y2="44" stroke="white" strokeWidth="1"/>
+                </g>
+              </svg>
             </div>
             <div>
               <h1 className={`text-2xl font-bold transition-colors duration-300 ${
                 isScrolled ? 'text-gray-900' : 'text-white'
               }`}>
-                <span className="tracking-wider">BLUECHECK</span>
+                <span className="tracking-wider font-black">BLUECHECK</span>
               </h1>
-              <p className={`text-sm font-semibold transition-colors duration-300 tracking-widest ${
+              <p className={`text-sm font-bold transition-colors duration-300 tracking-[0.2em] ${
                 isScrolled ? 'text-yellow-600' : 'text-yellow-400'
               }`}>
                 INSPECTIONS P/L
