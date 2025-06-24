@@ -225,6 +225,9 @@ frontend:
         -working: true
         -agent: "testing"
         -comment: "Form submission works correctly. When the form is submitted with valid data, a success toast notification appears with the message 'Booking Request Submitted! We'll contact you within 2 hours to confirm your inspection appointment.' The form is also reset after successful submission."
+        -working: true
+        -agent: "testing"
+        -comment: "Additional testing confirms form submission is working correctly. The form properly validates input, submits data to the backend API at /api/contact/inquiry, and displays a success toast notification. Network requests show the API call is made with the correct data format. The form resets after successful submission as expected."
 
   - task: "Navigation Testing"
     implemented: true
