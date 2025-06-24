@@ -2,12 +2,36 @@ import React from 'react';
 import { useToast } from '../../hooks/use-toast';
 
 const Toast = ({ id, title, description, onOpenChange }) => {
+  const [isVisible, setIsVisible] = React.useState(true);
+
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      onOpenChange(false);
+      setIsVisible(false);
+      setTimeout(() => onOpenChange(false), 300); // Allow animation to complete
     }, 5000);
     return () => clearTimeout(timer);
   }, [onOpenChange]);
+
+  const handleDismiss = () => {
+    setIsVisible(false);
+    setTimeout(() => onOpenChange(false), 300); // Allow animation to complete
+  };
+
+  if (!isVisible) {
+    return (
+      <div className="bg-white border border-gray-200 rounded-lg shadow-2xl p-4 mb-4 max-w-md animate-out slide-out-to-right duration-300 border-l-4 border-l-green-500 opacity-0 scale-95">
+        <div className="flex justify-between items-start">
+          <div className="flex-1">
+            <div className="flex items-center space-x-2 mb-1">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <h4 className="font-semibold text-gray-900">{title}</h4>
+            </div>
+            {description && <p className="text-gray-600 text-sm">{description}</p>}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-2xl p-4 mb-4 max-w-md animate-in slide-in-from-right duration-300 border-l-4 border-l-green-500">
@@ -20,8 +44,8 @@ const Toast = ({ id, title, description, onOpenChange }) => {
           {description && <p className="text-gray-600 text-sm">{description}</p>}
         </div>
         <button
-          onClick={() => onOpenChange(false)}
-          className="text-gray-400 hover:text-gray-600 ml-4 flex-shrink-0 w-5 h-5 flex items-center justify-center"
+          onClick={handleDismiss}
+          className="text-gray-400 hover:text-gray-600 ml-4 flex-shrink-0 w-6 h-6 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors duration-200"
         >
           ×
         </button>
