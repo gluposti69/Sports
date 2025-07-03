@@ -194,6 +194,21 @@ backend:
         -working: true
         -agent: "testing"
         -comment: "Data persistence is working correctly. Multiple inquiries with different inspection types were created and successfully retrieved. The statistics endpoint correctly reflected the new inquiries in the counts."
+        
+  - task: "Email Functionality"
+    implemented: true
+    working: false
+    file: "/app/backend/server.py"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Initial testing of email functionality"
+        -working: false
+        -agent: "testing"
+        -comment: "Email functionality is not working correctly. The API correctly processes form submissions and stores data in MongoDB, but emails are not being sent due to authentication errors. The backend logs show: 'Username and Password not accepted' errors when trying to send emails to both the business and customer. This is likely due to Google's security policies requiring app-specific passwords or OAuth2 for SMTP authentication instead of regular passwords."
 
 frontend:
   - task: "Form Validation Testing"
