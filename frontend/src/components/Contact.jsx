@@ -89,6 +89,11 @@ const Contact = () => {
       const result = await response.json();
       
       if (response.ok) {
+        // Track Google Ads conversion
+        if (window.trackFormSubmission) {
+          window.trackFormSubmission();
+        }
+        
         toast({
           title: "Booking Request Submitted!",
           description: result.message || "We'll contact you within 2 hours to confirm your inspection appointment.",
