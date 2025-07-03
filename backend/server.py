@@ -83,7 +83,7 @@ class ContactInquiryResponse(BaseModel):
 
 # Email configuration
 GMAIL_EMAIL = "bluecheckinspections@gmail.com"
-GMAIL_PASSWORD = "Pelagea1"
+GMAIL_PASSWORD = "etkg dpeo ymcd pmjd"
 GMAIL_SMTP_SERVER = "smtp.gmail.com"
 GMAIL_SMTP_PORT = 587
 
