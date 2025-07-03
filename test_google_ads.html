@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Tracking Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3367d6;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google Ads Tracking Test</h1>
+    
+    <!-- Copy the Google Ads tracking script from the website -->
+    <!-- Google Ads Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17263920875"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17263920875');
+      
+      // Function to track conversions
+      window.trackConversion = function(conversionValue = 1) {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17263920875/conversion',
+          'value': conversionValue,
+          'currency': 'AUD'
+        });
+      };
+      
+      // Function to track form submissions
+      window.trackFormSubmission = function() {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17263920875/form_submission',
+          'value': 1,
+          'currency': 'AUD',
+          'transaction_id': Date.now()
+        });
+      };
+    </script>
+    
+    <div class="test-section">
+        <h2>1. Google Ads Script Verification</h2>
+        <button onclick="checkGoogleAdsScript()">Check Google Ads Script</button>
+        <div id="script-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Test trackConversion Function</h2>
+        <button onclick="testTrackConversion()">Test trackConversion</button>
+        <div id="conversion-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Test trackFormSubmission Function</h2>
+        <button onclick="testTrackFormSubmission()">Test trackFormSubmission</button>
+        <div id="form-submission-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Test Call Now Button Tracking</h2>
+        <button onclick="testCallNowTracking()">Test Call Now Tracking</button>
+        <div id="call-now-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. Console Log Monitor</h2>
+        <button onclick="clearConsoleLog()">Clear Log</button>
+        <div id="console-log" class="result" style="max-height: 200px; overflow-y: auto;"></div>
+    </div>
+    
+    <script>
+        // Override console.log to capture logs
+        const originalConsoleLog = console.log;
+        console.log = function() {
+            const args = Array.from(arguments);
+            originalConsoleLog.apply(console, args);
+            
+            const logElement = document.getElementById('console-log');
+            const logItem = document.createElement('div');
+            logItem.textContent = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg) : arg
+            ).join(' ');
+            logElement.appendChild(logItem);
+            
+            // Auto-scroll to bottom
+            logElement.scrollTop = logElement.scrollHeight;
+        };
+        
+        // Override gtag to log calls
+        const originalGtag = window.gtag;
+        window.gtag = function() {
+            console.log('gtag called with:', Array.from(arguments));
+            return originalGtag.apply(this, arguments);
+        };
+        
+        function checkGoogleAdsScript() {
+            const resultElement = document.getElementById('script-result');
+            
+            try {
+                // Check if gtag function is available
+                const gtagAvailable = typeof window.gtag === 'function';
+                
+                // Check if dataLayer is initialized
+                const dataLayerInitialized = Array.isArray(window.dataLayer);
+                
+                // Check if tracking functions are available
+                const trackConversionAvailable = typeof window.trackConversion === 'function';
+                const trackFormSubmissionAvailable = typeof window.trackFormSubmission === 'function';
+                
+                // Check if conversion ID is configured correctly
+                const conversionIdConfigured = document.querySelector('script[src*="googletagmanager.com/gtag/js"]')?.src.includes('AW-17263920875');
+                
+                resultElement.innerHTML = `
+                    <div class="${gtagAvailable ? 'success' : 'error'}">gtag function: ${gtagAvailable ? '✅ Available' : '❌ Not available'}</div>
+                    <div class="${dataLayerInitialized ? 'success' : 'error'}">dataLayer: ${dataLayerInitialized ? '✅ Initialized' : '❌ Not initialized'}</div>
+                    <div class="${trackConversionAvailable ? 'success' : 'error'}">trackConversion: ${trackConversionAvailable ? '✅ Available' : '❌ Not available'}</div>
+                    <div class="${trackFormSubmissionAvailable ? 'success' : 'error'}">trackFormSubmission: ${trackFormSubmissionAvailable ? '✅ Available' : '❌ Not available'}</div>
+                    <div class="${conversionIdConfigured ? 'success' : 'error'}">Conversion ID: ${conversionIdConfigured ? '✅ Configured correctly' : '❌ Not configured correctly'}</div>
+                `;
+            } catch (error) {
+                resultElement.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+            }
+        }
+        
+        function testTrackConversion() {
+            const resultElement = document.getElementById('conversion-result');
+            
+            try {
+                console.log('Testing trackConversion function...');
+                window.trackConversion(2);
+                resultElement.innerHTML = '<div class="success">✅ trackConversion function called successfully</div>';
+            } catch (error) {
+                resultElement.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+        
+        function testTrackFormSubmission() {
+            const resultElement = document.getElementById('form-submission-result');
+            
+            try {
+                console.log('Testing trackFormSubmission function...');
+                window.trackFormSubmission();
+                resultElement.innerHTML = '<div class="success">✅ trackFormSubmission function called successfully</div>';
+            } catch (error) {
+                resultElement.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+        
+        function testCallNowTracking() {
+            const resultElement = document.getElementById('call-now-result');
+            
+            try {
+                console.log('Testing Call Now button tracking...');
+                // This is the code from the Call Now button in ScrollProgress.jsx
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-17263920875/phone_call',
+                    'value': 1,
+                    'currency': 'AUD'
+                });
+                resultElement.innerHTML = '<div class="success">✅ Call Now tracking event fired successfully</div>';
+            } catch (error) {
+                resultElement.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+        
+        function clearConsoleLog() {
+            document.getElementById('console-log').innerHTML = '';
+        }
+        
+        // Run initial check
+        window.onload = function() {
+            checkGoogleAdsScript();
+        };
+    </script>
+</body>
+</html>
