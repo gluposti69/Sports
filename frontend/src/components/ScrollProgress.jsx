@@ -43,6 +43,16 @@ const ScrollProgress = () => {
         {/* Call Button */}
         <a
           href="tel:0477167167"
+          onClick={() => {
+            // Track Google Ads phone conversion
+            if (window.gtag) {
+              window.gtag('event', 'conversion', {
+                'send_to': 'AW-17263920875/phone_call',
+                'value': 1,
+                'currency': 'AUD'
+              });
+            }
+          }}
           className="flex items-center justify-center w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
         >
           <Phone className="w-6 h-6" />
