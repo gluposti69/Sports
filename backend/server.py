@@ -101,10 +101,10 @@ def send_email_sync(to_email: str, subject: str, html_content: str, text_content
         
         # Add text and HTML parts
         if text_content:
-            part1 = MimeText(text_content, 'plain')
+            part1 = MIMEText(text_content, 'plain')
             msg.attach(part1)
         
-        part2 = MimeText(html_content, 'html')
+        part2 = MIMEText(html_content, 'html')
         msg.attach(part2)
         
         # Send email
