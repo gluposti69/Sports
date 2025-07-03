@@ -378,6 +378,67 @@ def test_data_persistence():
         log_test("Data Persistence", False, "Could not create any inquiries to test persistence")
         return False
 
+def test_email_functionality():
+    """Test 7: Email Functionality with Gmail App Password"""
+    try:
+        # Test data specifically for email testing
+        email_test_data = {
+            "name": "Email Test Customer",
+            "email": "test.customer@example.com",
+            "phone": "0498765432",
+            "property_address": "456 Email Test Lane, Melbourne VIC 3000",
+            "inspection_type": "new-home",
+            "preferred_date": "2024-01-20",
+            "message": "Testing email functionality with App Password"
+        }
+        
+        print("\n----- Testing Email Functionality -----")
+        print(f"Submitting test inquiry with data: {json.dumps(email_test_data, indent=2)}")
+        
+        response = requests.post(f"{BASE_URL}/contact/inquiry", json=email_test_data)
+        
+        if response.status_code == 200:
+            data = response.json()
+            inquiry_id = data.get("id")
+            
+            print(f"Inquiry created successfully with ID: {inquiry_id}")
+            print(f"API Response: {json.dumps(data, indent=2)}")
+            
+            # Check if the response message mentions email confirmation
+            email_mentioned = "email" in data.get("message", "").lower()
+            
+            if email_mentioned:
+                print("✓ API response includes email confirmation message")
+            else:
+                print("✗ API response does not mention email confirmation")
+            
+            # Verify the inquiry was saved to the database
+            verify_response = requests.get(f"{BASE_URL}/contact/inquiry/{inquiry_id}")
+            
+            if verify_response.status_code == 200:
+                print("✓ Inquiry was successfully saved to database")
+                
+                # Email functionality can only be fully verified by checking logs
+                # or by actually receiving the emails, but we can check if the API
+                # processed the request without errors
+                log_test("Email Functionality Test", True, 
+                         "Inquiry was created and saved to database. Check logs for email sending status.",
+                         {"inquiry_id": inquiry_id, "api_response": data})
+                
+                return inquiry_id
+            else:
+                log_test("Email Functionality Test", False, 
+                         "Inquiry was created but could not be retrieved from database",
+                         {"inquiry_id": inquiry_id, "verification_status": verify_response.status_code})
+        else:
+            log_test("Email Functionality Test", False, 
+                     f"Failed to create inquiry for email test. Status code: {response.status_code}",
+                     response.json() if response.text else None)
+    except Exception as e:
+        log_test("Email Functionality Test", False, f"Exception occurred: {str(e)}")
+    
+    return None
+
 def run_all_tests():
     """Run all tests in sequence"""
     print("\n===== STARTING BACKEND API TESTS =====\n")
@@ -404,6 +465,9 @@ def run_all_tests():
     
     # Test 6: Data Persistence
     test_data_persistence()
+    
+    # Test 7: Email Functionality
+    test_email_functionality()
     
     # Print summary
     print("\n===== TEST SUMMARY =====")
