@@ -94,7 +94,7 @@ def send_email_sync(to_email: str, subject: str, html_content: str, text_content
     """Send email using Gmail SMTP (synchronous)"""
     try:
         # Create message
-        msg = MimeMultipart('alternative')
+        msg = MIMEMultipart('alternative')
         msg['From'] = GMAIL_EMAIL
         msg['To'] = to_email
         msg['Subject'] = subject
