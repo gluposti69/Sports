@@ -197,9 +197,9 @@ backend:
         
   - task: "Email Functionality"
     implemented: true
-    working: false
+    working: true
     file: "/app/backend/server.py"
-    stuck_count: 1
+    stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
@@ -209,6 +209,9 @@ backend:
         -working: false
         -agent: "testing"
         -comment: "Email functionality is not working correctly. The API correctly processes form submissions and stores data in MongoDB, but emails are not being sent due to authentication errors. The backend logs show: 'Username and Password not accepted' errors when trying to send emails to both the business and customer. This is likely due to Google's security policies requiring app-specific passwords or OAuth2 for SMTP authentication instead of regular passwords."
+        -working: true
+        -agent: "testing"
+        -comment: "Email functionality is now working correctly with the updated Gmail App Password. The backend logs show successful email sending for both business notification and customer confirmation emails. The test inquiry was successfully created and saved to the database, and the API response included the email confirmation message. The logs show 'Business notification email sent for inquiry' and 'Customer confirmation email sent to test.customer@example.com' messages, confirming that the Gmail SMTP authentication is now working properly with the App Password."
 
 frontend:
   - task: "Form Validation Testing"
