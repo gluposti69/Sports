@@ -75,7 +75,17 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-500">
             <Button 
-              onClick={scrollToContact}
+              onClick={() => {
+                // Track Google Ads conversion for main CTA
+                if (window.gtag) {
+                  window.gtag('event', 'conversion', {
+                    'send_to': 'AW-17263920875/cta_click',
+                    'value': 1,
+                    'currency': 'AUD'
+                  });
+                }
+                scrollToContact();
+              }}
               size="lg"
               className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-4 rounded-xl shadow-2xl hover:shadow-blue-300/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 font-semibold group"
             >
