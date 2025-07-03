@@ -11,7 +11,7 @@ import uuid
 from datetime import datetime
 from enum import Enum
 import smtplib
-from email.mime.text import MimeText
+from email.mime.text import MIMEText
 from email.mime.multipart import MimeMultipart
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
