@@ -370,9 +370,43 @@ async def create_contact_inquiry(inquiry: ContactInquiryCreate):
             # Log the inquiry for monitoring
             logger.info(f"New contact inquiry created: {contact_inquiry.id} from {inquiry.email}")
             
+            # Send emails asynchronously
+            try:
+                # Send business notification email
+                business_subject, business_html, business_text = create_business_notification_email(contact_inquiry)
+                business_email_sent = await send_email_async(
+                    GMAIL_EMAIL,
+                    business_subject,
+                    business_html,
+                    business_text
+                )
+                
+                # Send customer confirmation email
+                customer_subject, customer_html, customer_text = create_customer_confirmation_email(contact_inquiry)
+                customer_email_sent = await send_email_async(
+                    inquiry.email,
+                    customer_subject,
+                    customer_html,
+                    customer_text
+                )
+                
+                if business_email_sent:
+                    logger.info(f"Business notification email sent for inquiry {contact_inquiry.id}")
+                else:
+                    logger.error(f"Failed to send business notification email for inquiry {contact_inquiry.id}")
+                
+                if customer_email_sent:
+                    logger.info(f"Customer confirmation email sent to {inquiry.email} for inquiry {contact_inquiry.id}")
+                else:
+                    logger.error(f"Failed to send customer confirmation email to {inquiry.email} for inquiry {contact_inquiry.id}")
+                    
+            except Exception as email_error:
+                logger.error(f"Email sending error for inquiry {contact_inquiry.id}: {str(email_error)}")
+                # Don't fail the inquiry creation if emails fail
+            
             return ContactInquiryResponse(
                 id=contact_inquiry.id,
-                message="Your inspection request has been submitted successfully! We'll contact you within 2 hours to confirm your appointment.",
+                message="Your inspection request has been submitted successfully! We'll contact you within 2 hours to confirm your appointment. You should also receive a confirmation email shortly.",
                 status="success"
             )
         else:
