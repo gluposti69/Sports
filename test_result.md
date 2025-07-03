@@ -313,8 +313,7 @@ test_plan:
     - "Contact Statistics"
     - "Data Persistence"
     - "Email Functionality"
-  stuck_tasks: 
-    - "Email Functionality"
+  stuck_tasks: []
   test_all: true
   test_priority: "high_first"
 
