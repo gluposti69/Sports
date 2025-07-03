@@ -81,6 +81,260 @@ class ContactInquiryResponse(BaseModel):
     message: str
     status: str
 
+# Email configuration
+GMAIL_EMAIL = "bluecheckinspections@gmail.com"
+GMAIL_PASSWORD = "Pelagea1"
+GMAIL_SMTP_SERVER = "smtp.gmail.com"
+GMAIL_SMTP_PORT = 587
+
+# Thread pool for email sending
+email_executor = ThreadPoolExecutor(max_workers=3)
+
+def send_email_sync(to_email: str, subject: str, html_content: str, text_content: str = ""):
+    """Send email using Gmail SMTP (synchronous)"""
+    try:
+        # Create message
+        msg = MimeMultipart('alternative')
+        msg['From'] = GMAIL_EMAIL
+        msg['To'] = to_email
+        msg['Subject'] = subject
+        
+        # Add text and HTML parts
+        if text_content:
+            part1 = MimeText(text_content, 'plain')
+            msg.attach(part1)
+        
+        part2 = MimeText(html_content, 'html')
+        msg.attach(part2)
+        
+        # Send email
+        server = smtplib.SMTP(GMAIL_SMTP_SERVER, GMAIL_SMTP_PORT)
+        server.starttls()
+        server.login(GMAIL_EMAIL, GMAIL_PASSWORD)
+        server.send_message(msg)
+        server.quit()
+        
+        return True
+    except Exception as e:
+        logger.error(f"Failed to send email to {to_email}: {str(e)}")
+        return False
+
+async def send_email_async(to_email: str, subject: str, html_content: str, text_content: str = ""):
+    """Send email asynchronously"""
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(
+        email_executor, 
+        send_email_sync, 
+        to_email, 
+        subject, 
+        html_content, 
+        text_content
+    )
+
+def create_business_notification_email(inquiry: ContactInquiry) -> tuple:
+    """Create email content for business notification"""
+    subject = f"🏠 New Inspection Request - {inquiry.name}"
+    
+    html_content = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
+            .header {{ background-color: #1e3a8a; color: white; padding: 20px; text-align: center; }}
+            .content {{ padding: 20px; }}
+            .info-table {{ width: 100%; border-collapse: collapse; margin: 20px 0; }}
+            .info-table th, .info-table td {{ padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }}
+            .info-table th {{ background-color: #f8f9fa; font-weight: bold; }}
+            .priority {{ background-color: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin: 20px 0; }}
+            .footer {{ background-color: #f8f9fa; padding: 15px; text-align: center; font-size: 12px; color: #666; }}
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>🏠 BLUECHECK INSPECTIONS P/L</h1>
+            <h2>New Inspection Request</h2>
+        </div>
+        
+        <div class="content">
+            <div class="priority">
+                <strong>⚡ Action Required:</strong> New inspection request received - respond within 2 hours as promised to customer.
+            </div>
+            
+            <h3>Customer Information:</h3>
+            <table class="info-table">
+                <tr><th>Name</th><td>{inquiry.name}</td></tr>
+                <tr><th>Email</th><td><a href="mailto:{inquiry.email}">{inquiry.email}</a></td></tr>
+                <tr><th>Phone</th><td><a href="tel:{inquiry.phone}">{inquiry.phone}</a></td></tr>
+                <tr><th>Property Address</th><td>{inquiry.property_address}</td></tr>
+                <tr><th>Inspection Type</th><td>{inquiry.inspection_type.replace('-', ' ').title()}</td></tr>
+                <tr><th>Preferred Date</th><td>{inquiry.preferred_date or 'Not specified'}</td></tr>
+                <tr><th>Submitted</th><td>{inquiry.created_at.strftime('%B %d, %Y at %I:%M %p')}</td></tr>
+            </table>
+            
+            {f'<h3>Customer Message:</h3><div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 10px 0;"><em>"{inquiry.message}"</em></div>' if inquiry.message else ''}
+            
+            <h3>📋 Next Steps:</h3>
+            <ol>
+                <li><strong>Call customer within 2 hours:</strong> <a href="tel:{inquiry.phone}">{inquiry.phone}</a></li>
+                <li><strong>Confirm inspection details and scheduling</strong></li>
+                <li><strong>Send quote if needed</strong></li>
+                <li><strong>Update inquiry status in system</strong></li>
+            </ol>
+        </div>
+        
+        <div class="footer">
+            <p>This notification was sent automatically from your BlueCheck Inspections website.</p>
+            <p>Inquiry ID: {inquiry.id}</p>
+        </div>
+    </body>
+    </html>
+    """
+    
+    text_content = f"""
+    NEW INSPECTION REQUEST - BLUECHECK INSPECTIONS
+    
+    ACTION REQUIRED: Respond within 2 hours as promised to customer.
+    
+    Customer Details:
+    - Name: {inquiry.name}
+    - Email: {inquiry.email}
+    - Phone: {inquiry.phone}
+    - Property: {inquiry.property_address}
+    - Type: {inquiry.inspection_type.replace('-', ' ').title()}
+    - Preferred Date: {inquiry.preferred_date or 'Not specified'}
+    - Submitted: {inquiry.created_at.strftime('%B %d, %Y at %I:%M %p')}
+    
+    {f'Customer Message: "{inquiry.message}"' if inquiry.message else ''}
+    
+    Next Steps:
+    1. Call customer: {inquiry.phone}
+    2. Confirm inspection details
+    3. Send quote if needed
+    4. Update status in system
+    
+    Inquiry ID: {inquiry.id}
+    """
+    
+    return subject, html_content, text_content
+
+def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
+    """Create email content for customer confirmation"""
+    subject = f"✅ Inspection Request Received - BlueCheck Inspections"
+    
+    html_content = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
+            .header {{ background-color: #1e3a8a; color: white; padding: 20px; text-align: center; }}
+            .content {{ padding: 20px; }}
+            .info-box {{ background-color: #e3f2fd; padding: 20px; border-radius: 8px; margin: 20px 0; }}
+            .contact-info {{ background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; }}
+            .footer {{ background-color: #f8f9fa; padding: 15px; text-align: center; font-size: 12px; color: #666; }}
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>🏠 BLUECHECK INSPECTIONS P/L</h1>
+            <p>Your Trusted Building Inspection Experts</p>
+        </div>
+        
+        <div class="content">
+            <h2>Hello {inquiry.name},</h2>
+            
+            <p>Thank you for choosing BlueCheck Inspections! We've received your inspection request and will contact you within <strong>2 hours</strong> to confirm your appointment.</p>
+            
+            <div class="info-box">
+                <h3>📋 Your Request Details:</h3>
+                <p><strong>Property:</strong> {inquiry.property_address}</p>
+                <p><strong>Inspection Type:</strong> {inquiry.inspection_type.replace('-', ' ').title()}</p>
+                <p><strong>Preferred Date:</strong> {inquiry.preferred_date or 'To be discussed'}</p>
+                <p><strong>Reference ID:</strong> {inquiry.id}</p>
+            </div>
+            
+            <h3>🕐 What Happens Next?</h3>
+            <ol>
+                <li><strong>We'll call you within 2 hours</strong> to confirm your inspection details</li>
+                <li><strong>Schedule your inspection</strong> at a convenient time</li>
+                <li><strong>Professional inspection</strong> by our VBA registered experts</li>
+                <li><strong>Detailed report delivered</strong> within 2-3 business days</li>
+            </ol>
+            
+            <div class="contact-info">
+                <h3>📞 Need to Contact Us?</h3>
+                <p><strong>Phone:</strong> <a href="tel:0477167167">0477 167 167</a></p>
+                <p><strong>Email:</strong> <a href="mailto:bluecheckinspections@gmail.com">bluecheckinspections@gmail.com</a></p>
+                <p><strong>Service Area:</strong> All of Melbourne Metropolitan Area</p>
+            </div>
+            
+            <h3>🏅 Why Choose BlueCheck Inspections?</h3>
+            <ul>
+                <li>✅ VBA Registered Building Practitioner</li>
+                <li>✅ HIA Member</li>
+                <li>✅ 15+ Years Experience</li>
+                <li>✅ 5.0 Star Rating</li>
+                <li>✅ Comprehensive Reports with Photos</li>
+                <li>✅ Professional and Reliable Service</li>
+            </ul>
+            
+            <p>We look forward to helping you with your building inspection needs!</p>
+            
+            <p><strong>Best regards,</strong><br>
+            The BlueCheck Inspections Team</p>
+        </div>
+        
+        <div class="footer">
+            <p>BlueCheck Inspections P/L | Melbourne, Victoria | 0477 167 167</p>
+            <p>This is an automated confirmation email. Please do not reply to this email.</p>
+        </div>
+    </body>
+    </html>
+    """
+    
+    text_content = f"""
+    BLUECHECK INSPECTIONS P/L - INSPECTION REQUEST CONFIRMED
+    
+    Hello {inquiry.name},
+    
+    Thank you for choosing BlueCheck Inspections! We've received your inspection request and will contact you within 2 HOURS to confirm your appointment.
+    
+    YOUR REQUEST DETAILS:
+    - Property: {inquiry.property_address}
+    - Inspection Type: {inquiry.inspection_type.replace('-', ' ').title()}
+    - Preferred Date: {inquiry.preferred_date or 'To be discussed'}
+    - Reference ID: {inquiry.id}
+    
+    WHAT HAPPENS NEXT:
+    1. We'll call you within 2 hours to confirm details
+    2. Schedule your inspection at a convenient time
+    3. Professional inspection by VBA registered experts
+    4. Detailed report delivered within 2-3 business days
+    
+    CONTACT US:
+    Phone: 0477 167 167
+    Email: bluecheckinspections@gmail.com
+    Service Area: All of Melbourne Metropolitan Area
+    
+    WHY CHOOSE BLUECHECK INSPECTIONS:
+    ✅ VBA Registered Building Practitioner
+    ✅ HIA Member  
+    ✅ 15+ Years Experience
+    ✅ 5.0 Star Rating
+    ✅ Comprehensive Reports with Photos
+    ✅ Professional and Reliable Service
+    
+    We look forward to helping you with your building inspection needs!
+    
+    Best regards,
+    The BlueCheck Inspections Team
+    
+    BlueCheck Inspections P/L | Melbourne, Victoria | 0477 167 167
+    """
+    
+    return subject, html_content, text_content
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
