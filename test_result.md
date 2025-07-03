@@ -309,7 +309,9 @@ test_plan:
     - "Contact Inquiry Retrieval"
     - "Contact Statistics"
     - "Data Persistence"
-  stuck_tasks: []
+    - "Email Functionality"
+  stuck_tasks: 
+    - "Email Functionality"
   test_all: true
   test_priority: "high_first"
 
