@@ -96,9 +96,9 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="text-gray-300">Pre-Purchase Inspections</li>
               <li className="text-gray-300">New Home Inspections</li>
-              <li className="text-gray-300">Building Code Compliance</li>
-              <li className="text-gray-300">Defect Identification</li>
-              <li className="text-gray-300">Detailed Reporting</li>
+              <li className="text-gray-300">Pre-Handover Inspections</li>
+              <li className="text-gray-300">Dilapidation Reports</li>
+              <li className="text-gray-300">Safe to Rent Reports</li>
             </ul>
           </div>
         </div>
