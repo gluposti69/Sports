@@ -152,7 +152,7 @@ def create_business_notification_email(inquiry: ContactInquiry) -> tuple:
     </head>
     <body>
         <div class="header">
-            <h1>🏠 BLUECHECK INSPECTIONS P/L</h1>
+            <h1>🏠 SAFE BUILDING INSPECTIONS</h1>
             <h2>New Inspection Request</h2>
         </div>
         
@@ -184,7 +184,7 @@ def create_business_notification_email(inquiry: ContactInquiry) -> tuple:
         </div>
         
         <div class="footer">
-            <p>This notification was sent automatically from your BlueCheck Inspections website.</p>
+            <p>This notification was sent automatically from your Safe Building Inspections website.</p>
             <p>Inquiry ID: {inquiry.id}</p>
         </div>
     </body>
@@ -192,7 +192,7 @@ def create_business_notification_email(inquiry: ContactInquiry) -> tuple:
     """
     
     text_content = f"""
-    NEW INSPECTION REQUEST - BLUECHECK INSPECTIONS
+    NEW INSPECTION REQUEST - SAFE BUILDING INSPECTIONS
     
     ACTION REQUIRED: Respond within 2 hours as promised to customer.
     
