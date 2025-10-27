@@ -41,11 +41,11 @@ export const mockData = {
     {
       id: 2,
       title: "New Home Inspections", 
-      description: "Ensure your new home meets all building standards and regulations. Quality assurance for new construction projects conducted per AS 4349/2007.",
+      description: "Ensure your new home meets all building standards and regulations. Quality assurance for new construction projects with comprehensive water leak testing.",
       features: [
-        "Building code compliance check (AS 4349/2007)",
+        "Building code compliance check",
         "Construction quality assessment",
-        "Defect identification and documentation", 
+        "Water leak detection and testing", 
         "Handover inspection support",
         "Builder liaison and follow-up",
         "Warranty protection guidance"
