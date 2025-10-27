@@ -37,7 +37,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
-            Protect your investment with comprehensive property inspections from Melbourne's most trusted experts
+            {mockData.business.tagline} - Protect your investment with comprehensive property inspections from Melbourne's most trusted experts
           </p>
 
           {/* Credentials Bar */}
