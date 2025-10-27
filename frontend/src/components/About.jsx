@@ -18,10 +18,10 @@ const About = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom duration-700">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Why Choose Blue Check Inspections?
+            Why Choose Safe Building Inspections?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Melbourne's trusted building inspection experts with over 15 years of experience protecting property investments
+            Melbourne's trusted building inspection experts with over 20 years of experience protecting property investments
           </p>
         </div>
 
