@@ -96,7 +96,7 @@ export const mockData = {
         "Fast 24-hour turnaround"
       ],
       duration: "1-2 hours",
-      price: "From $500"
+      price: "From $350"
     }
   ],
 
