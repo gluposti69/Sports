@@ -152,7 +152,7 @@ export const mockData = {
 
   sampleReport: {
     title: "Sample Inspection Report",
-    description: "See what you'll receive with every Blue Check Inspection",
+    description: "See what you'll receive with every Safe Building Inspection",
     features: [
       "Comprehensive property overview",
       "High-resolution photographs",
@@ -162,7 +162,7 @@ export const mockData = {
       "Professional summary and advice"
     ],
     pages: "Typically 25-40 pages",
-    delivery: "Delivered within 2-3 business days via email"
+    delivery: "Delivered within 24 hours via email"
   },
 
   contactForm: {
