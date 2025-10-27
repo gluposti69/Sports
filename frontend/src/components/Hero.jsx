@@ -43,19 +43,19 @@ const Hero = () => {
           {/* Credentials Bar */}
           <div className="flex flex-wrap justify-center items-center gap-6 mb-10 text-sm">
             <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 hover:bg-white/20 transition-colors duration-300">
-              {/* VBA Logo Design */}
-              <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                <span className="text-blue-600 font-bold text-xs">VBA</span>
-              </div>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_safe-inspector-1/artifacts/5cff2s6p_vba%20logo.jpg" 
+                alt="VBA Registered" 
+                className="w-6 h-6 object-contain"
+              />
               <span>VBA Registered</span>
             </div>
             <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 hover:bg-white/20 transition-colors duration-300">
-              {/* HIA Logo Design */}
-              <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center relative">
-                <div className="w-3 h-3 bg-white rounded-sm relative">
-                  <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-1 border-r-1 border-b-1 border-transparent border-b-yellow-400"></div>
-                </div>
-              </div>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_safe-inspector-1/artifacts/bo0vhow8_HIA-1375984727.png" 
+                alt="HIA Member" 
+                className="w-6 h-6 object-contain"
+              />
               <span>HIA Member</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
