@@ -512,6 +512,9 @@ def run_all_tests():
     # Test 7: Email Functionality
     test_email_functionality()
     
+    # Test 8: Email Branding Verification
+    test_email_branding()
+    
     # Print summary
     print("\n===== TEST SUMMARY =====")
     print(f"Total Tests: {test_results['passed'] + test_results['failed']}")
