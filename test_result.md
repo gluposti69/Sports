@@ -212,6 +212,24 @@ backend:
         -working: true
         -agent: "testing"
         -comment: "Email functionality is now working correctly with the updated Gmail App Password. The backend logs show successful email sending for both business notification and customer confirmation emails. The test inquiry was successfully created and saved to the database, and the API response included the email confirmation message. The logs show 'Business notification email sent for inquiry' and 'Customer confirmation email sent to test.customer@example.com' messages, confirming that the Gmail SMTP authentication is now working properly with the App Password."
+        -working: true
+        -agent: "testing"
+        -comment: "Rebranding verification complete. Email functionality continues to work correctly with new Safe Building Inspections branding. All email templates contain updated company name, slogan, contact details, and business metrics."
+
+  - task: "Backend Rebranding Verification"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Testing backend API after rebranding changes from BlueCheck Inspections to Safe Building Inspections"
+        -working: true
+        -agent: "testing"
+        -comment: "Backend rebranding verification successful. All tests passed: 1) Health endpoint now returns 'Safe Building Inspections API is running' (updated from BlueCheck), 2) Contact form submission works correctly with new branding, 3) MongoDB persistence verified, 4) Email templates contain all new branding elements: company name 'Safe Building Inspections', slogan 'know before you buy', email 'info@safebuildinginspections.com.au', 'Over 20 Years Experience', and '24 hours' report delivery. Email functionality continues working with Gmail SMTP. All 18 backend tests passed successfully."
 
 frontend:
   - task: "Rebrand Company Identity"
