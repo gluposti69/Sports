@@ -83,12 +83,12 @@ const Header = () => {
               <h1 className={`text-2xl font-bold transition-colors duration-300 ${
                 isScrolled ? 'text-gray-900' : 'text-white'
               }`}>
-                <span className="tracking-wider font-black">BLUECHECK</span>
+                <span className="tracking-wider font-black">SAFE BUILDING</span>
               </h1>
               <p className={`text-sm font-bold transition-colors duration-300 tracking-[0.2em] ${
                 isScrolled ? 'text-yellow-600' : 'text-yellow-400'
               }`}>
-                INSPECTIONS P/L
+                INSPECTIONS
               </p>
             </div>
           </div>
