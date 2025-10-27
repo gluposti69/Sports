@@ -16,6 +16,9 @@ const Services = () => {
   const getServiceIcon = (title) => {
     if (title.includes('Pre-Purchase')) return <Search className="w-8 h-8 text-blue-600" />;
     if (title.includes('New Home')) return <Home className="w-8 h-8 text-green-600" />;
+    if (title.includes('Pre-Handover')) return <FileText className="w-8 h-8 text-purple-600" />;
+    if (title.includes('Dilapidation')) return <AlertTriangle className="w-8 h-8 text-orange-600" />;
+    if (title.includes('Safe to Rent')) return <Shield className="w-8 h-8 text-teal-600" />;
     return <Shield className="w-8 h-8 text-purple-600" />;
   };
 
