@@ -110,14 +110,17 @@ const Footer = () => {
               {mockData.business.credentials.map((credential, index) => (
                 <div key={index} className="flex items-center space-x-2 bg-gray-800 rounded-full px-4 py-2 hover:bg-gray-700 transition-colors duration-300">
                   {credential.includes('VBA') ? (
-                    <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                      <span className="text-blue-600 text-xs font-bold">VBA</span>
-                    </div>
+                    <img 
+                      src="https://customer-assets.emergentagent.com/job_safe-inspector-1/artifacts/5cff2s6p_vba%20logo.jpg" 
+                      alt="VBA Registered" 
+                      className="w-6 h-6 object-contain"
+                    />
                   ) : credential.includes('HIA') ? (
-                    <div className="w-6 h-6 bg-green-600 rounded-lg flex items-center justify-center relative">
-                      <span className="text-white text-xs font-bold">H</span>
-                      <div className="absolute -bottom-0.5 -right-0.5 w-2 h-1.5 bg-yellow-400 rounded-sm"></div>
-                    </div>
+                    <img 
+                      src="https://customer-assets.emergentagent.com/job_safe-inspector-1/artifacts/bo0vhow8_HIA-1375984727.png" 
+                      alt="HIA Member" 
+                      className="w-6 h-6 object-contain"
+                    />
                   ) : (
                     <Shield className="w-4 h-4 text-blue-400" />
                   )}
