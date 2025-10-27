@@ -146,15 +146,26 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-            <div className="mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-sm text-gray-400">
               © {currentYear} {mockData.business.name}. All rights reserved.
             </div>
-            <div className="flex items-center space-x-6">
-              <span>VBA Registered Building Practitioner</span>
-              <span>•</span>
-              <span>HIA Member</span>
-              <span>•</span>
+            
+            {/* Logo Section */}
+            <div className="flex items-center gap-6">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_safe-inspector-1/artifacts/5cff2s6p_vba%20logo.jpg" 
+                alt="VBA Registered Building Practitioner" 
+                className="h-16 w-auto object-contain"
+              />
+              <img 
+                src="https://customer-assets.emergentagent.com/job_safe-inspector-1/artifacts/bo0vhow8_HIA-1375984727.png" 
+                alt="HIA Member" 
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+            
+            <div className="flex items-center space-x-6 text-sm text-gray-400">
               <span>Fully Insured</span>
             </div>
           </div>
