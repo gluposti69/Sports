@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
-              Melbourne's trusted building inspection experts with over 15 years of experience. 
+              Melbourne's trusted building inspection experts with over 20 years of experience. 
               Protecting your property investments with comprehensive, professional inspections.
             </p>
             
