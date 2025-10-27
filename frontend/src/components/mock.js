@@ -185,7 +185,7 @@ export const mockData = {
     {
       icon: "Clock",
       title: "Fast Turnaround", 
-      description: "Detailed reports delivered within 2-3 business days guaranteed"
+      description: "Detailed reports delivered within 24 hours guaranteed"
     },
     {
       icon: "Eye",
@@ -195,7 +195,7 @@ export const mockData = {
     {
       icon: "Users",
       title: "Expert Support",
-      description: "15+ years experience with ongoing consultation included"
+      description: "Over 20 years experience with ongoing consultation included"
     }
   ]
 };
