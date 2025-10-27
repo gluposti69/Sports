@@ -60,11 +60,11 @@ const Hero = () => {
             </div>
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Star className="w-5 h-5 text-yellow-400" />
-              <span>15+ Years Experience</span>
+              <span>Over 20 Years Experience</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <Clock className="w-5 h-5 text-green-400" />
-              <span>2-3 Day Report Delivery</span>
+              <span>24 Hour Report Delivery</span>
             </div>
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <MapPin className="w-5 h-5 text-red-400" />
