@@ -81,11 +81,11 @@ class ContactInquiryResponse(BaseModel):
     message: str
     status: str
 
-# Email configuration
-GMAIL_EMAIL = "bluecheckinspections@gmail.com"
-GMAIL_PASSWORD = "etkg dpeo ymcd pmjd"
-GMAIL_SMTP_SERVER = "smtp.gmail.com"
-GMAIL_SMTP_PORT = 587
+# Email configuration - Read from environment variables
+GMAIL_EMAIL = os.environ.get('GMAIL_EMAIL', 'bluecheckinspections@gmail.com')
+GMAIL_PASSWORD = os.environ.get('GMAIL_PASSWORD', '')
+GMAIL_SMTP_SERVER = os.environ.get('GMAIL_SMTP_SERVER', 'smtp.gmail.com')
+GMAIL_SMTP_PORT = int(os.environ.get('GMAIL_SMTP_PORT', '587'))
 
 # Thread pool for email sending
 email_executor = ThreadPoolExecutor(max_workers=3)
