@@ -6,7 +6,7 @@ import sys
 from datetime import datetime
 
 # Base URL from frontend/.env
-BASE_URL = "https://d1d32ec6-92c5-4808-9e7c-50ad929351e0.preview.emergentagent.com/api"
+BASE_URL = "https://safe-inspector-1.preview.emergentagent.com/api"
 
 # Test results tracking
 test_results = {
