@@ -439,6 +439,49 @@ def test_email_functionality():
     
     return None
 
+def test_email_branding():
+    """Test 8: Verify Email Templates Contain New Branding"""
+    try:
+        # Read the server.py file to check email template content
+        with open('/app/backend/server.py', 'r') as f:
+            server_content = f.read()
+        
+        # Check for new branding elements in email templates
+        branding_checks = [
+            ("Safe Building Inspections", "Company name in email templates"),
+            ("know before you buy", "Company slogan in email templates"),
+            ("info@safebuildinginspections.com.au", "New email address in templates"),
+            ("Over 20 Years Experience", "Updated experience claim"),
+            ("24 hours", "Updated report delivery time")
+        ]
+        
+        all_branding_found = True
+        branding_results = {}
+        
+        for branding_text, description in branding_checks:
+            if branding_text in server_content:
+                branding_results[description] = "✓ Found"
+                print(f"✓ {description}: Found '{branding_text}'")
+            else:
+                branding_results[description] = "✗ Missing"
+                print(f"✗ {description}: Missing '{branding_text}'")
+                all_branding_found = False
+        
+        if all_branding_found:
+            log_test("Email Branding Verification", True, 
+                     "All new branding elements found in email templates",
+                     branding_results)
+        else:
+            log_test("Email Branding Verification", False, 
+                     "Some branding elements missing from email templates",
+                     branding_results)
+        
+        return all_branding_found
+        
+    except Exception as e:
+        log_test("Email Branding Verification", False, f"Exception occurred: {str(e)}")
+        return False
+
 def run_all_tests():
     """Run all tests in sequence"""
     print("\n===== STARTING BACKEND API TESTS =====\n")
