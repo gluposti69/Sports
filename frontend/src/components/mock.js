@@ -81,7 +81,7 @@ export const mockData = {
         "Comprehensive condition report"
       ],
       duration: "2-3 hours",
-      price: "From $500"
+      price: "From $350"
     },
     {
       id: 5,
