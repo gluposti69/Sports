@@ -220,7 +220,7 @@ def create_business_notification_email(inquiry: ContactInquiry) -> tuple:
 
 def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
     """Create email content for customer confirmation"""
-    subject = f"✅ Inspection Request Received - BlueCheck Inspections"
+    subject = f"✅ Inspection Request Received - Safe Building Inspections"
     
     html_content = f"""
     <!DOCTYPE html>
@@ -237,14 +237,14 @@ def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
     </head>
     <body>
         <div class="header">
-            <h1>🏠 BLUECHECK INSPECTIONS P/L</h1>
-            <p>Your Trusted Building Inspection Experts</p>
+            <h1>🏠 SAFE BUILDING INSPECTIONS</h1>
+            <p>know before you buy</p>
         </div>
         
         <div class="content">
             <h2>Hello {inquiry.name},</h2>
             
-            <p>Thank you for choosing BlueCheck Inspections! We've received your inspection request and will contact you within <strong>2 hours</strong> to confirm your appointment.</p>
+            <p>Thank you for choosing Safe Building Inspections! We've received your inspection request and will contact you within <strong>2 hours</strong> to confirm your appointment.</p>
             
             <div class="info-box">
                 <h3>📋 Your Request Details:</h3>
@@ -259,21 +259,21 @@ def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
                 <li><strong>We'll call you within 2 hours</strong> to confirm your inspection details</li>
                 <li><strong>Schedule your inspection</strong> at a convenient time</li>
                 <li><strong>Professional inspection</strong> by our VBA registered experts</li>
-                <li><strong>Detailed report delivered</strong> within 2-3 business days</li>
+                <li><strong>Detailed report delivered</strong> within 24 hours</li>
             </ol>
             
             <div class="contact-info">
                 <h3>📞 Need to Contact Us?</h3>
                 <p><strong>Phone:</strong> <a href="tel:0477167167">0477 167 167</a></p>
-                <p><strong>Email:</strong> <a href="mailto:bluecheckinspections@gmail.com">bluecheckinspections@gmail.com</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@safebuildinginspections.com.au">info@safebuildinginspections.com.au</a></p>
                 <p><strong>Service Area:</strong> All of Melbourne Metropolitan Area</p>
             </div>
             
-            <h3>🏅 Why Choose BlueCheck Inspections?</h3>
+            <h3>🏅 Why Choose Safe Building Inspections?</h3>
             <ul>
                 <li>✅ VBA Registered Building Practitioner</li>
                 <li>✅ HIA Member</li>
-                <li>✅ 15+ Years Experience</li>
+                <li>✅ Over 20 Years Experience</li>
                 <li>✅ 5.0 Star Rating</li>
                 <li>✅ Comprehensive Reports with Photos</li>
                 <li>✅ Professional and Reliable Service</li>
@@ -282,11 +282,11 @@ def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
             <p>We look forward to helping you with your building inspection needs!</p>
             
             <p><strong>Best regards,</strong><br>
-            The BlueCheck Inspections Team</p>
+            The Safe Building Inspections Team</p>
         </div>
         
         <div class="footer">
-            <p>BlueCheck Inspections P/L | Melbourne, Victoria | 0477 167 167</p>
+            <p>Safe Building Inspections | Melbourne, Victoria | 0477 167 167</p>
             <p>This is an automated confirmation email. Please do not reply to this email.</p>
         </div>
     </body>
@@ -294,11 +294,11 @@ def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
     """
     
     text_content = f"""
-    BLUECHECK INSPECTIONS P/L - INSPECTION REQUEST CONFIRMED
+    SAFE BUILDING INSPECTIONS - INSPECTION REQUEST CONFIRMED
     
     Hello {inquiry.name},
     
-    Thank you for choosing BlueCheck Inspections! We've received your inspection request and will contact you within 2 HOURS to confirm your appointment.
+    Thank you for choosing Safe Building Inspections! We've received your inspection request and will contact you within 2 HOURS to confirm your appointment.
     
     YOUR REQUEST DETAILS:
     - Property: {inquiry.property_address}
@@ -310,17 +310,17 @@ def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
     1. We'll call you within 2 hours to confirm details
     2. Schedule your inspection at a convenient time
     3. Professional inspection by VBA registered experts
-    4. Detailed report delivered within 2-3 business days
+    4. Detailed report delivered within 24 hours
     
     CONTACT US:
     Phone: 0477 167 167
-    Email: bluecheckinspections@gmail.com
+    Email: info@safebuildinginspections.com.au
     Service Area: All of Melbourne Metropolitan Area
     
-    WHY CHOOSE BLUECHECK INSPECTIONS:
+    WHY CHOOSE SAFE BUILDING INSPECTIONS:
     ✅ VBA Registered Building Practitioner
     ✅ HIA Member  
-    ✅ 15+ Years Experience
+    ✅ Over 20 Years Experience
     ✅ 5.0 Star Rating
     ✅ Comprehensive Reports with Photos
     ✅ Professional and Reliable Service
@@ -328,9 +328,9 @@ def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
     We look forward to helping you with your building inspection needs!
     
     Best regards,
-    The BlueCheck Inspections Team
+    The Safe Building Inspections Team
     
-    BlueCheck Inspections P/L | Melbourne, Victoria | 0477 167 167
+    Safe Building Inspections | Melbourne, Victoria | 0477 167 167
     """
     
     return subject, html_content, text_content
