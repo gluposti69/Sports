@@ -33,7 +33,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {mockData.services.map((service, index) => (
             <Card 
               key={service.id} 
