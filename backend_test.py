@@ -43,7 +43,7 @@ def test_api_health():
         
         if response.status_code == 200:
             data = response.json()
-            expected_message = "BlueCheck Inspections API is running"
+            expected_message = "Safe Building Inspections API is running"
             
             if data.get("message") == expected_message:
                 log_test("API Health Check", True, f"API is running. Response: {data}")
