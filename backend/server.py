@@ -338,7 +338,7 @@ def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
-    return {"message": "BlueCheck Inspections API is running"}
+    return {"message": "Safe Building Inspections API is running"}
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
