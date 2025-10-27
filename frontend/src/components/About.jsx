@@ -159,7 +159,7 @@ const About = () => {
                 <Badge variant="secondary" className="px-4 py-2">
                   {mockData.sampleReport.pages}
                 </Badge>
-                <Badge variant="secondary" className="px-4 py-2">
+                <Badge variant="secondary" className="px-4 py-2 bg-green-50 text-green-700 border-green-200">
                   Delivered within 24 hours
                 </Badge>
               </div>
