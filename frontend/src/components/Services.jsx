@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { Clock, DollarSign, CheckCircle, Home, Search, Shield } from 'lucide-react';
+import { Clock, DollarSign, CheckCircle, Home, Search, Shield, FileText, AlertTriangle } from 'lucide-react';
 import { mockData } from './mock';
 
 const Services = () => {
