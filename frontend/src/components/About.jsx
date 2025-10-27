@@ -160,7 +160,7 @@ const About = () => {
                   {mockData.sampleReport.pages}
                 </Badge>
                 <Badge variant="secondary" className="px-4 py-2">
-                  Delivered within 2-3 business days
+                  Delivered within 24 hours
                 </Badge>
               </div>
             </div>
