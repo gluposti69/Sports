@@ -1,11 +1,12 @@
-// Mock data for Blue Check Inspections website
+// Mock data for Safe Building Inspections website
 
 export const mockData = {
   business: {
-    name: "BLUECHECK INSPECTIONS P/L",
-    tagline: "Your Trusted Building Inspection Experts",
+    name: "SAFE BUILDING INSPECTIONS",
+    tagline: "know before you buy",
     phone: "0477 167 167",
-    email: "bluecheckinspections@gmail.com",
+    email: "info@safebuildinginspections.com.au",
+    domain: "safebuildinginspections.com.au",
     address: "Melbourne, Victoria",
     serviceArea: "All of Melbourne Metropolitan Area",
     businessHours: {
@@ -17,7 +18,7 @@ export const mockData = {
       "VBA Registered Building Practitioner",
       "HIA Member", 
       "Licensed Building Inspector",
-      "15+ Years Experience"
+      "Over 20 Years Experience"
     ]
   },
 
