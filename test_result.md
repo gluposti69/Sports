@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the BlueCheck Inspections contact form functionality thoroughly, including form validation, submission, navigation, toast notifications, and overall UI."
+user_problem_statement: "Rebrand BlueCheck Inspections P/L to Safe Building Inspections with new logos, domain (safebuildinginspections.com.au), slogan 'know before you buy', updated email (info@safebuildinginspections.com.au), content changes: 2000+ inspections, remove pest/termite descriptions, AS 4349/2007 standard for inspections, 24-hour report turnaround, pricing from $500, add dilapidation/pre-handover/safe-to-rent services, over 20 years experience, update reviews to 2025."
 
 backend:
   - task: "API Health Check"
