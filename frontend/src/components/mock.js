@@ -106,8 +106,8 @@ export const mockData = {
       name: "Sarah & Michael Thompson",
       location: "Brighton, VIC",
       rating: 5,
-      text: "Blue Check Inspections saved us from making a costly mistake! Their thorough pre-purchase inspection revealed significant structural issues the seller hadn't disclosed. Professional, detailed, and incredibly knowledgeable.",
-      date: "2024-05-15"
+      text: "Safe Building Inspections saved us from making a costly mistake! Their thorough pre-purchase inspection revealed significant structural issues the seller hadn't disclosed. Professional, detailed, and incredibly knowledgeable.",
+      date: "2025-01-15"
     },
     {
       id: 2, 
@@ -115,15 +115,15 @@ export const mockData = {
       location: "Camberwell, VIC",
       rating: 5,
       text: "Outstanding service for our new home inspection. The inspector was punctual, thorough, and explained everything clearly. The detailed report helped us get several defects fixed by the builder before settlement.",
-      date: "2024-04-22"
+      date: "2025-02-22"
     },
     {
       id: 3,
       name: "Lisa Rodriguez",
       location: "Hawthorn, VIC", 
       rating: 5,
-      text: "I've used Blue Check Inspections for three property purchases now. Their consistency, attention to detail, and professional reports give me complete confidence. Highly recommended!",
-      date: "2024-03-18"
+      text: "I've used Safe Building Inspections for three property purchases now. Their consistency, attention to detail, and professional reports give me complete confidence. Highly recommended!",
+      date: "2025-03-18"
     }
   ],
 
