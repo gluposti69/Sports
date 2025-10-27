@@ -214,6 +214,66 @@ backend:
         -comment: "Email functionality is now working correctly with the updated Gmail App Password. The backend logs show successful email sending for both business notification and customer confirmation emails. The test inquiry was successfully created and saved to the database, and the API response included the email confirmation message. The logs show 'Business notification email sent for inquiry' and 'Customer confirmation email sent to test.customer@example.com' messages, confirming that the Gmail SMTP authentication is now working properly with the App Password."
 
 frontend:
+  - task: "Rebrand Company Identity"
+    implemented: false
+    working: "NA"
+    file: "/app/frontend/src/components/mock.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Starting rebranding task - update company name to Safe Building Inspections, slogan to 'know before you buy', email to info@safebuildinginspections.com.au, domain to safebuildinginspections.com.au"
+
+  - task: "Update Logos"
+    implemented: false
+    working: "NA"
+    file: "/app/frontend/src/components/mock.js, Header.jsx, Footer.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Need to replace main logo and update VBA/HIA logos throughout the site including footer"
+
+  - task: "Update Service Content"
+    implemented: false
+    working: "NA"
+    file: "/app/frontend/src/components/Services.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Update services: remove pest/termite, add AS 4349/2007 standard, add dilapidation/pre-handover/safe-to-rent reports, update pricing to from $500"
+
+  - task: "Update Business Metrics"
+    implemented: false
+    working: "NA"
+    file: "/app/frontend/src/components/mock.js, Hero.jsx, About.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Update to 2000+ inspections, 24-hour report turnaround, over 20 years experience"
+
+  - task: "Update Testimonials"
+    implemented: false
+    working: "NA"
+    file: "/app/frontend/src/components/mock.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Update testimonial dates to 2025"
+
   - task: "Form Validation Testing"
     implemented: true
     working: true
