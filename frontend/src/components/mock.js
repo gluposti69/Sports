@@ -26,24 +26,24 @@ export const mockData = {
     {
       id: 1,
       title: "Pre-Purchase Inspections",
-      description: "Comprehensive property evaluation before you buy. Protect your investment with detailed structural, electrical, and plumbing assessments.",
+      description: "Comprehensive property evaluation before you buy. Protect your investment with detailed assessment conducted in accordance with AS 4349/2007 standards.",
       features: [
-        "Structural integrity assessment",
+        "Structural integrity assessment (AS 4349/2007)",
         "Electrical safety inspection", 
         "Plumbing system evaluation",
-        "Pest and termite inspection",
-        "Detailed written report within 2-3 business days",
-        "Photos and recommendations included"
+        "Detailed written report within 24 hours",
+        "Photos and recommendations included",
+        "Major & minor defects documented"
       ],
       duration: "2-3 hours",
-      price: "From $450"
+      price: "From $500"
     },
     {
       id: 2,
       title: "New Home Inspections", 
-      description: "Ensure your new home meets all building standards and regulations. Quality assurance for new construction projects.",
+      description: "Ensure your new home meets all building standards and regulations. Quality assurance for new construction projects conducted per AS 4349/2007.",
       features: [
-        "Building code compliance check",
+        "Building code compliance check (AS 4349/2007)",
         "Construction quality assessment",
         "Defect identification and documentation", 
         "Handover inspection support",
@@ -51,7 +51,52 @@ export const mockData = {
         "Warranty protection guidance"
       ],
       duration: "2-4 hours",
-      price: "From $520"
+      price: "From $500"
+    },
+    {
+      id: 3,
+      title: "Pre-Handover Inspections",
+      description: "Comprehensive inspection before taking possession of your new property. Identify defects and issues before settlement.",
+      features: [
+        "Complete property assessment",
+        "Defect identification and documentation",
+        "Compliance verification",
+        "Detailed defect list for builder",
+        "Photo documentation included",
+        "24-hour report delivery"
+      ],
+      duration: "2-3 hours",
+      price: "From $500"
+    },
+    {
+      id: 4,
+      title: "Dilapidation Reports",
+      description: "Document the current condition of your property before nearby construction or renovation work begins.",
+      features: [
+        "Pre-construction property condition",
+        "Photographic evidence",
+        "Detailed structural assessment",
+        "Legal documentation support",
+        "Protect against damage claims",
+        "Comprehensive condition report"
+      ],
+      duration: "2-3 hours",
+      price: "From $500"
+    },
+    {
+      id: 5,
+      title: "Safe to Rent Reports",
+      description: "Ensure rental properties meet safety and habitability standards for tenants and landlords.",
+      features: [
+        "Safety compliance assessment",
+        "Electrical and gas safety checks",
+        "Structural safety evaluation",
+        "Rental regulation compliance",
+        "Detailed safety report",
+        "Fast 24-hour turnaround"
+      ],
+      duration: "1-2 hours",
+      price: "From $500"
     }
   ],
 
