@@ -75,7 +75,6 @@ export const mockData = {
         "Pre-construction property condition",
         "Photographic evidence",
         "Detailed structural assessment",
-        "Legal documentation support",
         "Protect against damage claims",
         "Comprehensive condition report"
       ],
