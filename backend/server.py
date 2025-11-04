@@ -87,7 +87,7 @@ class ContactInquiryResponse(BaseModel):
 GMAIL_EMAIL = os.environ.get('GMAIL_EMAIL', 'info@safebuildinginspections.com.au')
 GMAIL_PASSWORD = os.environ.get('GMAIL_PASSWORD', '')
 GMAIL_SMTP_SERVER = os.environ.get('GMAIL_SMTP_SERVER', 'smtp.gmail.com')
-GMAIL_SMTP_PORT = int(os.environ.get('GMAIL_SMTP_PORT', '465'))
+GMAIL_SMTP_PORT = int(os.environ.get('GMAIL_SMTP_PORT', '587'))
 
 # Thread pool for email sending
 email_executor = ThreadPoolExecutor(max_workers=3)
