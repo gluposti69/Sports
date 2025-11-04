@@ -27,14 +27,13 @@ export const mockData = {
       title: "Pre-Purchase Inspections",
       description: "Comprehensive property evaluation before you buy. Protect your investment with detailed assessment conducted in accordance with AS 4349/2007 standards.",
       features: [
-        "Structural integrity assessment (AS 4349/2007)",
-        "Electrical safety inspection", 
+        "Structural integrity assessment (AS 4349/2007)", 
         "Plumbing system evaluation",
         "Detailed written report within 24 hours",
         "Photos and recommendations included",
         "Major & minor defects documented"
       ],
-      duration: "2-3 hours",
+      duration: "1-3 hours",
       price: "From $500"
     },
     {
