@@ -48,7 +48,7 @@ export const mockData = {
         "Builder liaison and follow-up",
         "Warranty protection guidance"
       ],
-      duration: "2-4 hours",
+      duration: "1-4 hours",
       price: "From $500"
     },
     {
@@ -63,7 +63,7 @@ export const mockData = {
         "Photo documentation included",
         "24-hour report delivery"
       ],
-      duration: "2-3 hours",
+      duration: "1-3 hours",
       price: "From $500"
     },
     {
@@ -77,7 +77,7 @@ export const mockData = {
         "Protect against damage claims",
         "Comprehensive condition report"
       ],
-      duration: "2-3 hours",
+      duration: "1-3 hours",
       price: "From $350"
     },
     {
@@ -93,7 +93,7 @@ export const mockData = {
         "Fast 24-hour turnaround"
       ],
       duration: "1-2 hours",
-      price: "From $350"
+      price: "From $250"
     }
   ],
 
