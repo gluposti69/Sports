@@ -23,7 +23,14 @@ load_dotenv(ROOT_DIR / '.env')
 # MongoDB connection
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+# Use DB_NAME from env if provided, otherwise extract from connection string or use default
+db_name = os.environ.get('DB_NAME', None)
+if db_name:
+    db = client[db_name]
+else:
+    # If DB_NAME is not set, use the default database from connection string
+    # MongoDB connection strings can include database name after the last /
+    db = client.get_default_database()
 
 # Create the main app without a prefix
 app = FastAPI(title="Safe Building Inspections API", version="1.0.0")
