@@ -92,7 +92,7 @@ Base URL: `https://your-website-url.com/api`
 ## 📧 Email Notifications
 
 **You automatically receive emails for every new inquiry at:**
-📨 `bluecheckinspections@gmail.com`
+📨 `info@safebuildinginspections.com.au`
 
 **Email includes:**
 - ⚡ Priority alert (respond within 2 hours)
