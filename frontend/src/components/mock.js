@@ -17,7 +17,6 @@ export const mockData = {
     credentials: [
       "VBA Registered Building Practitioner",
       "HIA Member", 
-      "Licensed Building Inspector",
       "Over 20 Years Experience"
     ]
   },
