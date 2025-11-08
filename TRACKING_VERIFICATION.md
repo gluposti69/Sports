@@ -15,7 +15,7 @@
 4. **Refresh your website page**
 
 ### **What You Should See:**
-✅ **Google Ads tag firing** - Shows your AW-17263920875 ID
+✅ **Google Ads tag firing** - Shows your GTM-5632TGN9 ID
 ✅ **No errors** - Green checkmarks for all tags
 ✅ **Page view tracked** - Confirms basic tracking works
 
@@ -52,7 +52,7 @@
 1. **In the console, type**:
    ```javascript
    window.gtag('event', 'conversion', {
-     'send_to': 'AW-17263920875/test_conversion',
+     'send_to': 'GTM-5632TGN9/test_conversion',
      'value': 1,
      'currency': 'AUD'
    });
@@ -163,7 +163,7 @@ console.log('Conversion tracking:', typeof window.trackConversion === 'function'
 // Test 3: Fire a test conversion
 if (window.gtag) {
   window.gtag('event', 'conversion', {
-    'send_to': 'AW-17263920875/manual_test',
+    'send_to': 'GTM-5632TGN9/manual_test',
     'value': 1,
     'currency': 'AUD',
     'transaction_id': 'test_' + Date.now()
