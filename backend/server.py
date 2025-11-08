@@ -85,7 +85,7 @@ class ContactInquiryResponse(BaseModel):
 
 # Email configuration - Read from environment variables
 GMAIL_EMAIL = os.environ.get('GMAIL_EMAIL', 'info@safebuildinginspections.com.au')
-GMAIL_PASSWORD = os.environ.get('GMAIL_PASSWORD', '')
+GMAIL_PASSWORD = os.environ.get('GMAIL_PASSWORD', 'pgxa foxu hohn nmzp')
 GMAIL_SMTP_SERVER = os.environ.get('GMAIL_SMTP_SERVER', 'smtp.gmail.com')
 GMAIL_SMTP_PORT = int(os.environ.get('GMAIL_SMTP_PORT', '587'))
 
