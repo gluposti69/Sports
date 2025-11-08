@@ -2,7 +2,7 @@
 
 ## ✅ **What's Been Implemented**
 
-Your Google Ads tracking is now fully configured with conversion ID **AW-17263920875**
+Your Google Ads tracking is now fully configured with conversion ID **GTM-5632TGN9**
 
 ### **🎯 Conversion Events Being Tracked:**
 
