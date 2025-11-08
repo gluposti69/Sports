@@ -60,7 +60,7 @@ window.trackFormSubmission();
 
 // Direct gtag access for custom events
 window.gtag('event', 'conversion', {
-  'send_to': 'AW-17263920875/event_name',
+  'send_to': 'GTM-5632TGN9/event_name',
   'value': 1,
   'currency': 'AUD'
 });
@@ -69,13 +69,13 @@ window.gtag('event', 'conversion', {
 ### **Conversion Actions Configured:**
 ```javascript
 // Form submissions
-'send_to': 'AW-17263920875/form_submission'
+'send_to': 'GTM-5632TGN9/form_submission'
 
 // Phone calls
-'send_to': 'AW-17263920875/phone_call'
+'send_to': 'GTM-5632TGN9/phone_call'
 
 // CTA clicks
-'send_to': 'AW-17263920875/cta_click'
+'send_to': 'GTM-5632TGN9/cta_click'
 ```
 
 ## 📈 **What You'll See in Google Ads**
