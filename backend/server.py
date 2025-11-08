@@ -327,6 +327,7 @@ def create_customer_confirmation_email(inquiry: ContactInquiry) -> tuple:
     ✅ 5.0 Star Rating
     ✅ Comprehensive Reports with Photos
     ✅ Professional and Reliable Service
+    ✅ Report Delivered within 24Hr
     
     We look forward to helping you with your building inspection needs!
     
