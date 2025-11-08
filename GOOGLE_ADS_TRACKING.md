@@ -1,4 +1,4 @@
-# 📊 Google Ads Tracking Setup - BlueCheck Inspections
+# 📊 Google Ads Tracking Setup - Safe Building Inspections
 
 ## ✅ **What's Been Implemented**
 
