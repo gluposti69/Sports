@@ -1,4 +1,4 @@
-# 🔐 BlueCheck Inspections Admin Guide
+# 🔐 Safe Building Inspections Admin Guide
 
 ## 📊 Admin Dashboard Access
 
